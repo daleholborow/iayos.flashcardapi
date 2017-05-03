@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
+namespace iayos.flashcardapi.ServiceModel.Infrastructure.Message
 {
 
 	/// <summary>
@@ -12,7 +12,7 @@ namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
 	/// in ListResponse.Results, along with the total count in ListResponse.Total
 	/// </summary>
 	/// <typeparam name="TPayloadDto"></typeparam>
-	public class ListResponse<TPayloadDto> : Response
+	public class ListPayloadResponse<TPayloadDto> : Response<List<TPayloadDto>>
 	{
 
 		/// <summary>
@@ -29,6 +29,17 @@ namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
 
 		[DataMember(Order = 4)]
 		public List<TPayloadDto> Results { get; set; } = new List<TPayloadDto>();
+
+
+		public ListPayloadResponse() { }
+
+
+		public ListPayloadResponse(List<TPayloadDto> payload, long? total = null, long offset = 0)
+		{
+			Results = payload;
+			_total = total;
+			Offset = offset;
+		}
 
 	}
 

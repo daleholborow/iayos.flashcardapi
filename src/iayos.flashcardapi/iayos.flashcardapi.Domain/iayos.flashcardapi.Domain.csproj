@@ -41,7 +41,8 @@
   <ItemGroup>
     <Compile Include="Infrastructure\IInteractor.cs" />
     <Compile Include="Infrastructure\ITransactionalGateway.cs" />
-    <Compile Include="Mappings\FileMappings.cs" />
+    <Compile Include="Interactor\Deck\CreateDeckInteractor.cs" />
+    <Compile Include="Mapping\FileMappings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iayos.flashcardapi.DomainModel\iayos.flashcardapi.DomainModel.csproj">
@@ -54,12 +55,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="iayos.extensions, Version=0.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iayos.extensions.0.3.2\lib\net461\iayos.extensions.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Text, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Text.4.5.8\lib\net45\ServiceStack.Text.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interactions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,15 +40,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystem\Messages\FileMessage.cs" />
-    <Compile Include="Infrastructure\Messages\ListResponse.cs" />
-    <Compile Include="Infrastructure\Messages\Response.cs" />
+    <Compile Include="Deck\Dto\DeckDto.cs" />
+    <Compile Include="Deck\Message\CreateDeckMessage.cs" />
+    <Compile Include="FileSystem\Message\UploadFileMessage.cs" />
+    <Compile Include="Infrastructure\Message\ListPayloadResponse.cs" />
+    <Compile Include="Infrastructure\Message\Response.cs" />
+    <Compile Include="Infrastructure\Message\UnitPayloadResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FileSystem\Dtos\" />
-    <Folder Include="Infrastructure\Dtos\" />
-    <Folder Include="User\Dtos\" />
-    <Folder Include="User\Messages\" />
+    <Folder Include="FileSystem\Dto\" />
+    <Folder Include="Infrastructure\Dto\" />
+    <Folder Include="User\Dto\" />
+    <Folder Include="User\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">

@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace iayos.flashcardapi.ServiceModel.FileSystem.Messages
+namespace iayos.flashcardapi.ServiceModel.FileSystem.Message
 {
 
 	/// <summary>
 	/// Incoming file payload for http multi type content upload
 	/// </summary>
-	public class FileMessage
+	public class UploadFileMessage
 	{
 
 		public string Name { get; set; }

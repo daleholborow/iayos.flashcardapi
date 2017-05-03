@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Runtime.Serialization;
-using iayos.flashcardapi.ServiceModel.Infrastructure.Messages;
 using ServiceStack;
 
-namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
+namespace iayos.flashcardapi.ServiceModel.Infrastructure.Message
 {
 
 	/// <summary>
@@ -17,7 +16,7 @@ namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
 	/// See http://stackoverflow.com/questions/16015192/validation-exceptions-not-serialized-when-using-ireturnvoid-interface
 	/// </remarks>
 	[DebuggerStepThrough]
-	public class Response : IHasResponseStatus
+	public abstract class Response<TPayloadDto> : IHasResponseStatus, IReturn<TPayloadDto>
 	{
 		/// <summary>
 		/// The ServiceStack-populated outcome of the operation
@@ -26,33 +25,4 @@ namespace iayos.flashcardapi.ServiceModel.Infrastructure.Messages
 		public ResponseStatus ResponseStatus { get; set; }
 	}
 
-
-	/// <summary>
-	/// Response message to return a data payload for a SINGLE record
-	/// </summary>
-	/// <typeparam name="TPayloadDto"></typeparam>
-	[DebuggerStepThrough]
-	public class Response<TPayloadDto> : Response
-	{
-
-		[DataMember(Order = 2)]
-		public TPayloadDto Result { get; set; }
-
-
-		public Response() { }
-
-
-		public Response(TPayloadDto result)
-		{
-			Result = result;
-		}
-
-	}
-
 }
-
-
-
-
-
-
