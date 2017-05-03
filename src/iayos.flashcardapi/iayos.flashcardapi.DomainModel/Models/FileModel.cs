@@ -2,7 +2,7 @@
 
 namespace iayos.flashcardapi.DomainModel.Models
 {
-	public class FileModel
+	public class FileModel : Infrastructure.DomainModel
 	{
 
 		public string Name { get; set; }

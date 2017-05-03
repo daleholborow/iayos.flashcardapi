@@ -38,7 +38,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\DomainModel.cs" />
+    <Compile Include="Infrastructure\IModelHasGuid.cs" />
+    <Compile Include="Models\CardFaceModel.cs" />
+    <Compile Include="Models\CardModel.cs" />
+    <Compile Include="Models\CardScoreModel.cs" />
+    <Compile Include="Models\DeckModel.cs" />
     <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Flags\LanguageFlag.cs" />
+    <Compile Include="Flags\FrequencyModeFlag.cs" />
+    <Compile Include="Models\StudyPlanModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
