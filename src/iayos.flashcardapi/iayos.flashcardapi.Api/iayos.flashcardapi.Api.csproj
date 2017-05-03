@@ -73,6 +73,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+	  <None Include="AppSettings.Private.config">
+		  <DependentUpon>Web.config</DependentUpon>
+	  </None>
+	  <None Include="ConnectionStrings.Private.config">
+		  <DependentUpon>Web.config</DependentUpon>
+	  </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -95,7 +101,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2904</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
