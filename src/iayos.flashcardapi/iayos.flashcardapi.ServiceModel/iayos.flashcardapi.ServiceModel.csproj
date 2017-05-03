@@ -38,5 +38,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileSystem\Messages\FileMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileSystem\Dtos\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
