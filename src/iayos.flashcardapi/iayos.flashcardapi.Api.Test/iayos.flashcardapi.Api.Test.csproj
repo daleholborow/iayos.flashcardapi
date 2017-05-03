@@ -51,6 +51,12 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iayos.flashcardapi.Api\iayos.flashcardapi.Api.csproj">
+      <Project>{90E0CF20-F9CF-41C5-9E03-4431C471C4CB}</Project>
+      <Name>iayos.flashcardapi.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
