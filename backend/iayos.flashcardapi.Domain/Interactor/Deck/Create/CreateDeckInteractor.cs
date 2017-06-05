@@ -1,33 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Resources;
-using iayos.extensions;
 using iayos.flashcardapi.Domain.Infrastructure;
 using iayos.flashcardapi.DomainModel.Models;
-using iayos.flashcardapi.ServiceModel.Deck.Dto;
-using iayos.flashcardapi.ServiceModel.Deck.Message;
-using ServiceStack;
 
-namespace iayos.flashcardapi.Domain.Interactor.Deck {
-
-	public class CreateDeckInteractor : IInteractor<CreateDeckMessage, CreateDeckMessageResponse>
+namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
+{
+	public class CreateDeckInteractor : IInteractor<CreateDeckInput, CreateDeckOutput>
 	{
-
-
-		ICreateDeckGateway _gateway;
+		private readonly ICreateDeckGateway _gateway;
 
 
 		public CreateDeckInteractor(ICreateDeckGateway gateway)
 		{
 			_gateway = gateway;
-			_gateway = new InMemoryDeckModelRepository();
+			//_gateway = new InMemoryDeckModelRepository();
 			//_gateway = new InMemoryModelRepository<DeckModel>();
 		}
 
 
-		public CreateDeckMessageResponse Handle(CreateDeckMessage request)
+		public CreateDeckOutput Handle(CreateDeckInput request)
 		{
 			//_gateway.BeginTransaction();
 
@@ -37,12 +26,12 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck {
 			//var existingDeckModel = _gateway.Get(-1);
 
 			//deckModel = _gateway.Save(deckModel, x => x.DeckId);
-			deckModel = _gateway.Save(deckModel);
+			//deckModel = _gateway.Save(deckModel);
 
 			//_gateway.CommitTransaction();
 
-			var payload = deckModel.ConvertTo<DeckDto>();
-			return new CreateDeckMessageResponse {Result = payload};
+			//var payload = deckModel.ConvertTo<DeckDto>();
+			return new CreateDeckOutput {DeckId = -666};
 		}
 
 
@@ -89,48 +78,47 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck {
 
 	//}
 
-	public interface ICreateDeckGateway : IRepository<int, DeckModel>/*, ITransactionalGateway*/ { }
+	/*public interface ICreateDeckGateway : IRepository<int, DeckModel> /*, ITransactionalGateway#1#
+	{
+	}
 
 
-
-	public class InMemoryDeckModelRepository : ICreateDeckGateway {
-
+	public class InMemoryDeckModelRepository : ICreateDeckGateway
+	{
 		private static readonly Dictionary<int, DeckModel> Store = new Dictionary<int, DeckModel>();
 
 		/// <inheritdoc />
-		public DeckModel Get(int id) { return Store[id]; }
+		public DeckModel Get(int id)
+		{
+			return Store[id];
+		}
 
 
 		/// <inheritdoc />
-		public DeckModel Save(DeckModel entity) { throw new NotImplementedException(); }
-
+		public DeckModel Save(DeckModel entity)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 
 	public interface IRepository<TKey, TTable>
 	{
-		
-
 		TTable Get(int id);
 
 
 		/// <inheritdoc />
 		TTable Save(TTable entity);
-
 	}
 
 
-	public interface IDynamicKeyRepository<TKey, TTable> {
-
+	public interface IDynamicKeyRepository<TKey, TTable>
+	{
 		TTable Get(int id);
 
 		TTable Save(TTable entity, Expression<Func<TTable, int>> propertySelector);
-
 	}
 
-
-
-	
 
 	public class InMemoryModelDynamicKeyRepository<TTable> : IDynamicKeyRepository<int, TTable>
 	{
@@ -145,10 +133,10 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck {
 
 		public TTable Save(TTable entity, Expression<Func<TTable, int>> propertySelector)
 		{
-			var expr = (MemberExpression)propertySelector.Body;
-			var prop = (PropertyInfo)expr.Member;
+			var expr = (MemberExpression) propertySelector.Body;
+			var prop = (PropertyInfo) expr.Member;
 
-			var entityId = (int)prop.GetValue(entity);
+			var entityId = (int) prop.GetValue(entity);
 
 			if (entityId == 0) entityId = Store.Count;
 
@@ -158,7 +146,5 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck {
 
 			return default(TTable);
 		}
-
-	}
-
+	}*/
 }

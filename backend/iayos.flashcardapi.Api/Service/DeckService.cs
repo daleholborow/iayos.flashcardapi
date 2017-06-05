@@ -1,6 +1,7 @@
 ﻿using iayos.flashcardapi.Api.Infrastructure;
 using iayos.flashcardapi.Domain.Interactor.Deck;
-using iayos.flashcardapi.ServiceModel.Deck.Message;
+using iayos.flashcardapi.Domain.Interactor.Deck.Create;
+using iayos.flashcardapi.ServiceModel.Deck.Messages;
 
 namespace iayos.flashcardapi.Api.Service
 {
@@ -8,10 +9,10 @@ namespace iayos.flashcardapi.Api.Service
 	public class DeckService : FlashCardApiService
 	{
 
-		public object Get(CreateDeckMessage request)
+		public object Post(CreateDeckRequest request)
 		{
 			var interactor = TryResolve<CreateDeckInteractor>();
-			CreateDeckMessageResponse result = interactor.Handle(request);
+			var result = interactor.Handle(request);
 			return result;
 		}
 
