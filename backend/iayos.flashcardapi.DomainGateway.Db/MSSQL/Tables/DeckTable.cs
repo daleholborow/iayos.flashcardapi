@@ -1,4 +1,5 @@
-﻿using iayos.flashcardapi.DomainModel.Flags;
+﻿using System.Collections.Generic;
+using iayos.flashcardapi.DomainModel.Flags;
 using ServiceStack.DataAnnotations;
 
 namespace iayos.flashcardapi.DomainGateway.Db.MSSQL.Tables
@@ -21,6 +22,10 @@ namespace iayos.flashcardapi.DomainGateway.Db.MSSQL.Tables
 		/// What language are the backs of the cards recorded in?
 		/// </summary>
 		public LanguageFlag BackLanguage { get; set; } = LanguageFlag.ENGLISH;
+
+
+		[Reference]
+		public ICollection<CardTable> Cards { get; set; } = new List<CardTable>();
 
 	}
 }
