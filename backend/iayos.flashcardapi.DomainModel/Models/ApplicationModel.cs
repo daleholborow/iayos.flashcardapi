@@ -8,8 +8,6 @@ namespace iayos.flashcardapi.DomainModel.Models
 	/// </summary>
 	public class ApplicationModel : Infrastructure.DomainModel
 	{
-		public int ApplicationId { get; set; }
-
 		public string Name { get; set; }
 		
 		public ICollection<DeckModel> Decks { get; set; } = new List<DeckModel>();

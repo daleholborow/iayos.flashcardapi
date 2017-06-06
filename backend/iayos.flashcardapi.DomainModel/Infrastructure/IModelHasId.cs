@@ -5,6 +5,6 @@
 		/// <summary>
 		/// Per model-type primary key 
 		/// </summary>
-		int Id { get; set; }
+		long Id { get; set; }
 	}
 }

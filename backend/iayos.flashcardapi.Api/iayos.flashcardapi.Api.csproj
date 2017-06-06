@@ -44,8 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="iayos.extensions, Version=0.3.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\iayos.extensions.0.3.2\lib\net461\iayos.extensions.dll</HintPath>
+    <Reference Include="iayos.extensions, Version=0.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iayos.extensions.0.3.3\lib\net461\iayos.extensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -112,6 +112,14 @@
     <Compile Include="Infrastructure\FlashCardApiService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">
+      <Project>{6AF7F357-5A1C-49A7-A060-1B5E1544AE9D}</Project>
+      <Name>iayos.flashcardapi.Domain.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iayos.flashcardapi.DomainModel\iayos.flashcardapi.DomainModel.csproj">
+      <Project>{494A9C5A-10CF-4F6A-97BB-D3A4E9D5B49B}</Project>
+      <Name>iayos.flashcardapi.DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\iayos.flashcardapi.Domain\iayos.flashcardapi.Domain.csproj">
       <Project>{97DE0252-4E3E-4836-8578-9DFB63DC0D5B}</Project>
       <Name>iayos.flashcardapi.Domain</Name>
