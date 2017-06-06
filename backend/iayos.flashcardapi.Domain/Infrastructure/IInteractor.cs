@@ -1,4 +1,6 @@
-﻿namespace iayos.flashcardapi.Domain.Infrastructure
+﻿using iayos.flashcardapi.DomainModel.Models;
+
+namespace iayos.flashcardapi.Domain.Infrastructure
 {
 
 	/// <summary>
@@ -14,6 +16,6 @@
 	/// <typeparam name="TResponseMessage"></typeparam>
 	public interface IInteractor<TRequestMessage, TResponseMessage>
 	{
-		TResponseMessage Handle(TRequestMessage request);
+		TResponseMessage Handle(UserModel agent, TRequestMessage request);
 	}
 }

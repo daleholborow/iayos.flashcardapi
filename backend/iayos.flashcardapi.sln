@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Api", "i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Api.Test", "iayos.flashcardapi.Api.Test\iayos.flashcardapi.Api.Test.csproj", "{489A5DE5-3211-4C54-9A67-8AC8D3621145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.DomainGateway.DbDeploy", "iayos.flashcardapi.DomainGateway.DbDeploy\iayos.flashcardapi.DomainGateway.DbDeploy.csproj", "{C7DD4CFC-B95D-4F1C-B1B1-4D99C217B651}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.DomainGateway.Db", "iayos.flashcardapi.DomainGateway.Db\iayos.flashcardapi.DomainGateway.Db.csproj", "{D5F56A78-2FC7-4D3C-9086-64FEE186B468}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Domain.Concrete", "iayos.flashcardapi.Domain.Concrete\iayos.flashcardapi.Domain.Concrete.csproj", "{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Domain.Concrete.MsSql", "iayos.flashcardapi.Domain.Concrete.MsSql\iayos.flashcardapi.Domain.Concrete.MsSql.csproj", "{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Domain.Concrete.MsSql.Deploy", "iayos.flashcardapi.Domain.Concrete.MsSql.Deploy\iayos.flashcardapi.Domain.Concrete.MsSql.Deploy.csproj", "{34F8BB44-5F9B-4D34-B9ED-0978E26CD6A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,18 +45,18 @@ Global
 		{489A5DE5-3211-4C54-9A67-8AC8D3621145}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{489A5DE5-3211-4C54-9A67-8AC8D3621145}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{489A5DE5-3211-4C54-9A67-8AC8D3621145}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7DD4CFC-B95D-4F1C-B1B1-4D99C217B651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7DD4CFC-B95D-4F1C-B1B1-4D99C217B651}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7DD4CFC-B95D-4F1C-B1B1-4D99C217B651}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7DD4CFC-B95D-4F1C-B1B1-4D99C217B651}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5F56A78-2FC7-4D3C-9086-64FEE186B468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5F56A78-2FC7-4D3C-9086-64FEE186B468}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5F56A78-2FC7-4D3C-9086-64FEE186B468}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5F56A78-2FC7-4D3C-9086-64FEE186B468}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F8BB44-5F9B-4D34-B9ED-0978E26CD6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F8BB44-5F9B-4D34-B9ED-0978E26CD6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F8BB44-5F9B-4D34-B9ED-0978E26CD6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F8BB44-5F9B-4D34-B9ED-0978E26CD6A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("iayos.flashcardapi.DomainGateway.DbDeploy")]
+[assembly: AssemblyTitle("iayos.flashcardapi.Domain.Concrete.MsSql")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("iayos.flashcardapi.DomainGateway.DbDeploy")]
+[assembly: AssemblyProduct("iayos.flashcardapi.Domain.Concrete.MsSql")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c7dd4cfc-b95d-4f1c-b1b1-4d99c217b651")]
+[assembly: Guid("3456d800-0dc5-4a13-a5a5-a32b5efce9b2")]
 
 // Version information for an assembly consists of the following four values:
 //

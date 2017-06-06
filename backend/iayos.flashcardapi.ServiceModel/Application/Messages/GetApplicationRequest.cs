@@ -1,4 +1,4 @@
-using iayos.flashcardapi.Domain.Interactor.Application;
+using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Application.Messages

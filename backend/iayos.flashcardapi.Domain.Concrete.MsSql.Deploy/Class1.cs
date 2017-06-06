@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iayos.flashcardapi.DomainGateway.DbDeploy
+namespace iayos.flashcardapi.Domain.Concrete.MsSql.Deploy
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-		}
-	}
+    public class Class1
+    {
+    }
 }

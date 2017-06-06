@@ -1,6 +1,6 @@
 ﻿using iayos.flashcardapi.Api.Infrastructure;
-using iayos.flashcardapi.Domain.Interactor.Deck;
 using iayos.flashcardapi.Domain.Interactor.Deck.Create;
+using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Deck.Messages;
 
 namespace iayos.flashcardapi.Api.Service
@@ -12,7 +12,8 @@ namespace iayos.flashcardapi.Api.Service
 		public object Post(CreateDeckRequest request)
 		{
 			var interactor = TryResolve<CreateDeckInteractor>();
-			var result = interactor.Handle(request);
+			var agent = new UserModel();
+			var result = interactor.Handle(agent, request);
 			return result;
 		}
 

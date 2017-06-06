@@ -2,7 +2,7 @@
 using iayos.flashcardapi.DomainModel.Flags;
 using ServiceStack.DataAnnotations;
 
-namespace iayos.flashcardapi.DomainGateway.Db.MSSQL.Tables
+namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 {
 	[Alias("Deck")]
 	public class DeckTable : AuditableTable

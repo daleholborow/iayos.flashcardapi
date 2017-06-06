@@ -6,17 +6,19 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
 	public class CreateDeckInteractor : IInteractor<CreateDeckInput, CreateDeckOutput>
 	{
 		private readonly ICreateDeckGateway _gateway;
+		private ICreateDeckValidator _validator;
 
 
-		public CreateDeckInteractor(ICreateDeckGateway gateway)
+		public CreateDeckInteractor(ICreateDeckGateway gateway, ICreateDeckValidator validator)
 		{
 			_gateway = gateway;
+			_validator = validator;
 			//_gateway = new InMemoryDeckModelRepository();
 			//_gateway = new InMemoryModelRepository<DeckModel>();
 		}
 
 
-		public CreateDeckOutput Handle(CreateDeckInput request)
+		public CreateDeckOutput Handle(UserModel agent, CreateDeckInput request)
 		{
 			//_gateway.BeginTransaction();
 
