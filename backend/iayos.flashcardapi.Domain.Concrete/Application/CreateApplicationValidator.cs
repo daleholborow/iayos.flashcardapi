@@ -27,7 +27,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 			applicationName = applicationName.Trim();
 
 			// see if name is unique and throw if not
-			var application = ConcreteDomainMixinMethods.FindApplicationByName(this, applicationName);
+			var application = ApplicationConcreteMixinMethods.FindApplicationByName(this, applicationName);
 			if (application != null) throw new Exception("Not allowed duplicate application names");
 			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}

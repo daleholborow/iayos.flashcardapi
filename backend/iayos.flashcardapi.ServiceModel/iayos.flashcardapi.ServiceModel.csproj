@@ -40,11 +40,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Dto\ApplicationDto.cs" />
     <Compile Include="Application\Messages\CreateApplicationRequestResponse.cs" />
     <Compile Include="Application\Messages\GetApplicationRequest.cs" />
     <Compile Include="Application\Messages\GetApplicationRequestResponse.cs" />
-    <Compile Include="Deck\Dto\DeckDto.cs" />
     <Compile Include="Application\Messages\CreateApplicationRequest.cs" />
     <Compile Include="Deck\Messages\CreateDeckRequest.cs" />
     <Compile Include="Deck\Messages\CreateDeckRequestResponse.cs" />
@@ -67,6 +65,10 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">
+      <Project>{6AF7F357-5A1C-49A7-A060-1B5E1544AE9D}</Project>
+      <Name>iayos.flashcardapi.Domain.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\iayos.flashcardapi.Domain\iayos.flashcardapi.Domain.csproj">
       <Project>{97DE0252-4E3E-4836-8578-9DFB63DC0D5B}</Project>
       <Name>iayos.flashcardapi.Domain</Name>

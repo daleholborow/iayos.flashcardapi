@@ -1,7 +1,9 @@
-﻿namespace iayos.flashcardapi.Domain.Interactor.Application
+﻿using System;
+
+namespace iayos.flashcardapi.Domain.Interactor.Application
 {
 	public class CreateApplicationOutput
 	{
-		public long ApplicationId { get; set; }
+		public Guid ApplicationGlobalId { get; set; }
 	}
 }

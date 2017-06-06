@@ -15,7 +15,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Find
 			_validator = validator;
 		}
 
-		public FindApplicationOutput Handle(UserModel agent, FindApplicationInput request)
+		public FindApplicationOutput Handle(UserModel agent, FindApplicationInput input)
 		{
 			throw new NotImplementedException();
 		}

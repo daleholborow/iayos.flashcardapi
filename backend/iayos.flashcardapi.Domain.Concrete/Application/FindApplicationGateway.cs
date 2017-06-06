@@ -12,14 +12,14 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 
 		public ApplicationModel FindApplicationByName(string applicationName)
 		{
-			var application = ConcreteDomainMixinMethods.FindApplicationByName(this, applicationName);
+			var application = ApplicationConcreteMixinMethods.FindApplicationByName(this, applicationName);
 		return application;
 		}
 
 
 		public ApplicationModel FindApplicationByGlobalId(Guid globalId)
 		{
-			var application = ConcreteDomainMixinMethods.FindApplicationByGlobalId(this, globalId);
+			var application = ApplicationConcreteMixinMethods.FindApplicationByGlobalId(this, globalId);
 			return application;
 		}
 	}

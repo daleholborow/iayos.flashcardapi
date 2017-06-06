@@ -52,16 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\ApplicationMappings.cs" />
+    <Compile Include="Application\ApplicationConcreteMappings.cs" />
     <Compile Include="Application\CreateApplicationGateway.cs" />
     <Compile Include="Application\CreateApplicationValidator.cs" />
     <Compile Include="Application\FindApplicationGateway.cs" />
-    <Compile Include="Application\IFindApplicationByName.cs" />
     <Compile Include="Application\IHasDbConnection.cs" />
-    <Compile Include="Application\DomainLogicMsSql.cs" />
-    <Compile Include="Application\ConcreteDomainMixinMethods.cs" />
-    <Compile Include="Application\SomeGreatBigDirtyClassWithAllMyDbAccessForNow.cs" />
-    <Compile Include="Application\ReusableLogic.cs" />
+    <Compile Include="Application\ApplicationConcreteMixinMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,6 +16,6 @@ namespace iayos.flashcardapi.Domain.Infrastructure
 	/// <typeparam name="TResponseMessage"></typeparam>
 	public interface IInteractor<TRequestMessage, TResponseMessage>
 	{
-		TResponseMessage Handle(UserModel agent, TRequestMessage request);
+		TResponseMessage Handle(UserModel agent, TRequestMessage input);
 	}
 }

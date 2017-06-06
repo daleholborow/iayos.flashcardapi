@@ -4,7 +4,7 @@ using ServiceStack;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	internal static class ApplicationMappings
+	internal static class ApplicationConcreteMappings
 	{
 		public static ApplicationModel ToApplicationModel(this ApplicationTable row)
 		{

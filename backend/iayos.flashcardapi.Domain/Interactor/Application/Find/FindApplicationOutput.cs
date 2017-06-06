@@ -1,4 +1,4 @@
-using iayos.flashcardapi.DomainModel.Models;
+using iayos.flashcardapi.Domain.Dto.Application;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.Find
 {
@@ -7,6 +7,6 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Find
 		/// <summary>
 		/// Matching application if one found that met criteria
 		/// </summary>
-		public ApplicationModel Application { get; set; }
+		public ApplicationDto Application { get; set; }
 	}
 }

@@ -5,7 +5,7 @@ using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	public static class ConcreteDomainMixinMethods
+	public static class ApplicationConcreteMixinMethods
 	{
 		public static ApplicationModel FindApplicationByName(this IHasDbConnection implementation, string name)
 		{

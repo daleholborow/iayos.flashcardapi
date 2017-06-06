@@ -14,16 +14,17 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			_validator = validator;
 		}
 
-		public CreateApplicationOutput Handle(UserModel agent, CreateApplicationInput request)
+
+		public CreateApplicationOutput Handle(UserModel agent, CreateApplicationInput input)
 		{
 			// Can this agent perform this action?
 			_validator.ThrowOnInsufficientPermissions(agent);
 
 			// validate that application doesnt exist by name already
-			_validator.ThrowOnInvalidApplicationName(request.Name);
+			_validator.ThrowOnInvalidApplicationName(input.Name);
 
-			// map request to domainmodel
-			var application = request.ToApplicationModel();
+			// map input to domainmodel
+			var application = input.ToApplicationModel();
 
 			// pass domainmodel to gateway for persistence
 			var applicationId = _gateway.Insert(application);
@@ -31,7 +32,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			// return the bare minimum of data!
 			return new CreateApplicationOutput
 			{
-				ApplicationId = applicationId
+				ApplicationGlobalId = application.GlobalId
 			};
 		}
 	}

@@ -13,16 +13,14 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
 		{
 			_gateway = gateway;
 			_validator = validator;
-			//_gateway = new InMemoryDeckModelRepository();
-			//_gateway = new InMemoryModelRepository<DeckModel>();
 		}
 
 
-		public CreateDeckOutput Handle(UserModel agent, CreateDeckInput request)
+		public CreateDeckOutput Handle(UserModel agent, CreateDeckInput input)
 		{
 			//_gateway.BeginTransaction();
 
-			var deckModel = new DeckModel(); // request.ToDeckModel();
+			var deckModel = new DeckModel(); // input.ToDeckModel();
 
 
 			//var existingDeckModel = _gateway.Get(-1);
@@ -48,12 +46,12 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
 
 
 		/// <inheritdoc />
-		public InsertDocumentMessageResponse Handle(InsertDocumentMessage request)
+		public InsertDocumentMessageResponse Handle(InsertDocumentMessage input)
 		{
 			_insertDocumentGateway.BeginTransaction();
-			//_insertDocumentGateway.IsQuestionnaireActive(request.QuestionnaireId);
+			//_insertDocumentGateway.IsQuestionnaireActive(input.QuestionnaireId);
 
-			//var documentEntity = request.ToDocumentEntity();
+			//var documentEntity = input.ToDocumentEntity();
 			var documentEntity = new DocumentModel();
 			documentEntity.DocumentId = _insertDocumentGateway.InsertDocument(documentEntity);
 
