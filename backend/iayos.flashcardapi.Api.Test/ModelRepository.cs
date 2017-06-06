@@ -11,10 +11,10 @@ namespace iayos.flashcardapi.Api.Test
 	public class ModelRepository<TDomainModel>
 		where TDomainModel : IDomainModel
 	{
-		private readonly Dictionary<int, TDomainModel> Store = new Dictionary<int, TDomainModel>();
+		private readonly Dictionary<long, TDomainModel> Store = new Dictionary<long, TDomainModel>();
 
 
-		public TDomainModel Get(int id)
+		public TDomainModel Get(long id)
 		{
 			return Store[id];
 		}

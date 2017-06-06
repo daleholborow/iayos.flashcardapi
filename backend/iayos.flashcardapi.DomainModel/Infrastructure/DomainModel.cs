@@ -7,7 +7,7 @@ namespace iayos.flashcardapi.DomainModel.Infrastructure
 	{
 
 		/// <inheritdoc />
-		public int Id { get; set; }
+		public long Id { get; set; }
 
 		/// <inheritdoc />
 		public Guid GlobalId { get; set; } = Guid.NewGuid(); // TODO: SHOULD be generated as a sequential GUID to ensure it doesnt blow up DB indexing

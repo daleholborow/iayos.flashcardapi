@@ -4,6 +4,6 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 {
 	public interface IHasDbConnection
 	{
-		IDbConnection Db { get; set; }
+		IDbConnection Db { get; }
 	}
 }

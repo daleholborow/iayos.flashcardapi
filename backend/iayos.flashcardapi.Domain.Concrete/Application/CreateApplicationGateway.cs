@@ -1,11 +1,6 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
+﻿using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.Domain.Interactor.Application.Find;
 using iayos.flashcardapi.DomainModel.Models;
-using ServiceStack;
 using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
@@ -14,66 +9,27 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 			ICreateApplicationGateway,
 			IHasDbConnection
 	{
+
+		public IDbConnection Db { get; }
+
+
+		public CreateApplicationGateway(IDbConnection dbConnection)
+		{
+			Db = dbConnection;
+		}
+
 		public long Insert(ApplicationModel application)
 		{
-			// doo some db cool stuff here with ServiceStack
-			//throw new System.NotImplementedException();
-			var table = application.ConvertTo<ApplicationTable>();
+			var table = application.ToApplicationTable();
 			var id = Db.Insert(table, true);
 			return id;
 		}
 
-		public IDbConnection Db { get; set; }
-	}
-
-
-	public class CreateApplicationValidator : ICreateApplicationValidator, IHasDbConnection
-	{
-		public void ThrowOnInsufficientPermissions(UserModel agent)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public void ThrowOnNonUniqueApplicationName(string requestName)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public void ThrowOnInvalidApplicationName(string requestName)
-		{
-			// see if name is unique and throw if not
-			var table = Db.FindApplicationByName(requestName);
-			if (table != null) throw new Exception("Not Allowed Dup;licates!!!");
-
-			throw new System.NotImplementedException();
-		}
 		
-
-		public IDbConnection Db { get; set; }
 	}
 
-	public class FindApplicationGateway : IFindApplicationByName, IHasDbConnection
-	{
-		public ApplicationModel FindApplicationByName(string applicationName)
-		{
-			var table = Db.FindApplicationByName(applicationName);
-			var model = table.ConvertTo<ApplicationModel>();
-			return model;
-		}
 
-		public IDbConnection Db { get; set; }
-	}
-
-	public static class StoredProcedures
-	{
-		public static ApplicationTable FindApplicationByName(this IDbConnection db, string applicationName)
-		{
-			var records = db.Select<ApplicationTable>(x => x.Name == applicationName); //SELECT by typed expression
-			return records.Single();
-		}
-	}
-
-//
+	//
 //	public interface IFindApplicationByNameMsSql : IFindApplicationByName
 //	{
 //		
@@ -84,12 +40,12 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 //		DomainLogicMsSql, 
 //		IFindApplicationByNameMsSql
 //	{
-//		//public ApplicationModel FindApplicationByName(string name)
+//		//public ApplicationModel FindApplicationTableByName(string name)
 //		//{
-//		//	var model = SomeGreatBigDirtyClassWithAllMyDbAccessForNow.FindApplicationByName(this, name);
+//		//	var model = SomeGreatBigDirtyClassWithAllMyDbAccessForNow.FindApplicationTableByName(this, name);
 //		//	return model;
 //		//}
-//		public ApplicationModel FindApplicationByName(string applicationName)
+//		public ApplicationModel FindApplicationTableByName(string applicationName)
 //		{
 //			throw new NotImplementedException();
 //		}
@@ -108,7 +64,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 //
 //		public void ThrowOnNonUniqueApplicationName(string requestName)
 //		{
-//			var applicationTable = this.Db.FindApplicationByName(requestName);
+//			var applicationTable = this.Db.FindApplicationTableByName(requestName);
 //
 //		}
 //
@@ -117,21 +73,21 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 //			throw new NotImplementedException();
 //		}
 //
-//		//public ApplicationModel FindApplicationByName(string applicationName)
+//		//public ApplicationModel FindApplicationTableByName(string applicationName)
 //		//{
-//		//	//return ShitStorm.FindApplicationByName(this, applicationName);
-//		//	return FindApplicationByName(applicationName);
+//		//	//return ShitStorm.FindApplicationTableByName(this, applicationName);
+//		//	return FindApplicationTableByName(applicationName);
 //		//}
 //	}
 //
 //	public static class ShitStorm
 //	{
-//		public static ApplicationModel FindApplicationByName(this IFindApplicationByNameMsSql mssqlLogic, string applicationName)
+//		public static ApplicationModel FindApplicationTableByName(this IFindApplicationByNameMsSql mssqlLogic, string applicationName)
 //		{
 //			throw new NotImplementedException();
 //		}
 //
-//		public static ApplicationModel FindApplicationByName<TDomainLogic>(this TDomainLogic logic, string applicationName)
+//		public static ApplicationModel FindApplicationTableByName<TDomainLogic>(this TDomainLogic logic, string applicationName)
 //			where TDomainLogic : IFindApplicationByName, IHasDbConnection
 //		{
 //			var table = logic.Db.Select<ApplicationTable>(x => x.Name == applicationName); //SELECT by typed expression
@@ -142,9 +98,9 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 //
 //	//public class CreateApplicationMsSqlValidator : DomainLogicMsSql, ICreateApplicationValidator
 //	//{
-//	//	public ApplicationModel FindApplicationByName(string name)
+//	//	public ApplicationModel FindApplicationTableByName(string name)
 //	//	{
-//	//		var model = SomeGreatBigDirtyClassWithAllMyDbAccessForNow.FindApplicationByName(this, name);
+//	//		var model = SomeGreatBigDirtyClassWithAllMyDbAccessForNow.FindApplicationTableByName(this, name);
 //	//		return model;
 //	//	}
 //

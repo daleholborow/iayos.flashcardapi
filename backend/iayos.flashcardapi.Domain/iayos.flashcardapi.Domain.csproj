@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Infrastructure\IInteractor.cs" />
     <Compile Include="Infrastructure\ITransactionalGateway.cs" />
+    <Compile Include="Interactor\Application\Create\ApplicationDomainMappings.cs" />
     <Compile Include="Interactor\Application\Create\CreateApplicationInput.cs" />
     <Compile Include="Interactor\Application\Create\CreateApplicationInteractor.cs" />
     <Compile Include="Interactor\Application\Create\CreateApplicationOutput.cs" />

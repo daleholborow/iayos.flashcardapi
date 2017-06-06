@@ -8,7 +8,7 @@
 //{
 //	public static class SomeGreatBigDirtyClassWithAllMyDbAccessForNow
 //	{
-//		public static ApplicationModel FindApplicationByName<TDomainLogic>(this TDomainLogic logic, string applicationName) 
+//		public static ApplicationModel FindApplicationTableByName<TDomainLogic>(this TDomainLogic logic, string applicationName) 
 //			where TDomainLogic : IFindApplicationByName, IHasDbConnection
 //		{
 //			var table = logic.Db.Select<ApplicationTable>(x => x.Name == applicationName); //SELECT by typed expression
