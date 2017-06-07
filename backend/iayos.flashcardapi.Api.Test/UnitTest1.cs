@@ -1,13 +1,60 @@
-﻿using iayos.flashcardapi.DomainModel.Flags;
+﻿using System;
+using Funq;
+using iayos.flashcardapi.Api.Service;
+using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
+using iayos.flashcardapi.DomainModel.Flags;
 using iayos.flashcardapi.DomainModel.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using iayos.flashcardapi.ServiceModel.Application.Messages;
+using ServiceStack;
+using ServiceStack.Data;
+using ServiceStack.OrmLite;
+using Xunit;
 
 namespace iayos.flashcardapi.Api.Test
 {
-	[TestClass]
+
+	public class AppHost : AppSelfHostBase
+	{
+		public AppHost() : base("REST Example", typeof(ApplicationService).Assembly) { }
+
+		public override void Configure(Container container)
+		{
+			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
+
+			using (var db = container.Resolve<IDbConnectionFactory>().Open())
+			{
+				db.CreateTableIfNotExists<UserTable>();
+				db.CreateTableIfNotExists<ApplicationTable>();
+				db.CreateTableIfNotExists<DeckTable>();
+				db.CreateTableIfNotExists<CardTable>();
+				
+			}
+		}
+	}
+
+
 	public class UnitTest1
 	{
-		[TestMethod]
+		const string BaseUri = "http://localhost:2000/";
+		ServiceStackHost appHost;
+
+		public UnitTest1()
+		{
+			//Start your AppHost on TestFixture SetUp
+			appHost = new AppHost()
+				.Init()
+				.Start(BaseUri);
+		}
+
+		[Fact]
+		public void GetApplicationByApplicationGlobalId()
+		{
+			var client = new JsonServiceClient(BaseUri);
+			var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
+			Assert.True(all.Result.GlobalId == Guid.NewGuid());
+		}
+
+		[Fact]
 		public void TestMethod1()
 		{
 
