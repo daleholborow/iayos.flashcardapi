@@ -5,21 +5,21 @@ using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	public class FindApplicationGateway : IFindApplicationGateway, IHasDbConnection
+	public class FindApplicationGateway : IFindApplicationGateway, IFindApplicationModelByNameFromMsSqlDb, IFindApplicationModelByGlobalIdFromMsSqlDb
 	{
 		public IDbConnection Db { get; set; }
 
 
 		public ApplicationModel FindApplicationByName(string applicationName)
 		{
-			var application = ApplicationConcreteMixinMethods.FindApplicationByName(this, applicationName);
-		return application;
+			var application = this.FindApplicationModelByNameFromDb(applicationName);
+			return application;
 		}
 
 
-		public ApplicationModel FindApplicationByGlobalId(Guid globalId)
+		public ApplicationModel FindApplicationByGlobalId(Guid applicationGlobalId)
 		{
-			var application = ApplicationConcreteMixinMethods.FindApplicationByGlobalId(this, globalId);
+			var application = this.FindApplicationModelByGlobalId(applicationGlobalId);
 			return application;
 		}
 	}

@@ -5,7 +5,7 @@ using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	public class CreateApplicationValidator : ICreateApplicationValidator, IHasDbConnection
+	public class CreateApplicationValidator : ICreateApplicationValidator, IFindApplicationModelByNameFromMsSqlDb
 	{
 
 		public IDbConnection Db { get; }
@@ -18,7 +18,8 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 
 		public void ThrowOnInsufficientPermissions(UserModel agent)
 		{
-			throw new NotImplementedException("not checking for permmisssions properly yet");
+			//throw new NotImplementedException("not checking for permmisssions properly yet");
+			// TODO perm,ss
 		}
 
 
@@ -27,11 +28,10 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 			applicationName = applicationName.Trim();
 
 			// see if name is unique and throw if not
-			var application = ApplicationConcreteMixinMethods.FindApplicationByName(this, applicationName);
+			var application = this.FindApplicationModelByNameFromDb(applicationName);
 			if (application != null) throw new Exception("Not allowed duplicate application names");
 			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}
 		
 	}
-
 }

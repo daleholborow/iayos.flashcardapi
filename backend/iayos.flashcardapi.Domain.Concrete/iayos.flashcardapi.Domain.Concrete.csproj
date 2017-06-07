@@ -56,6 +56,10 @@
     <Compile Include="Application\CreateApplicationGateway.cs" />
     <Compile Include="Application\CreateApplicationValidator.cs" />
     <Compile Include="Application\FindApplicationGateway.cs" />
+    <Compile Include="Application\GetApplicationGateway.cs" />
+    <Compile Include="Application\GetApplicationValidator.cs" />
+    <Compile Include="Application\IFindApplicationModelByGlobalIdFromMsSqlDb.cs" />
+    <Compile Include="Application\IFindApplicationModelByNameFromMsSqlDb.cs" />
     <Compile Include="Application\IHasDbConnection.cs" />
     <Compile Include="Application\ApplicationConcreteMixinMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,6 +8,7 @@ namespace iayos.flashcardapi.Api.Service
 {
 	public class ApplicationService : FlashCardApiService
 	{
+		
 		public CreateApplicationRequestResponse Post(CreateApplicationRequest request)
 		{
 			var agent = new UserModel();
@@ -23,6 +24,7 @@ namespace iayos.flashcardapi.Api.Service
 			var response = new CreateApplicationRequestResponse {Result = getApplicationOutput.Application};
 			return response;
 		}
+
 
 		public GetApplicationRequestResponse Get(GetApplicationRequest request)
 		{

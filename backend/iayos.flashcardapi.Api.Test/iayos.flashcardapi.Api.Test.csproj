@@ -102,6 +102,10 @@
       <Project>{3456D800-0DC5-4A13-A5A5-A32B5EFCE9B2}</Project>
       <Name>iayos.flashcardapi.Domain.Concrete.MsSql</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iayos.flashcardapi.Domain.Concrete\iayos.flashcardapi.Domain.Concrete.csproj">
+      <Project>{3B2B17E5-17E8-4012-B814-FF3C6C6F9E24}</Project>
+      <Name>iayos.flashcardapi.Domain.Concrete</Name>
+    </ProjectReference>
     <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">
       <Project>{6AF7F357-5A1C-49A7-A060-1B5E1544AE9D}</Project>
       <Name>iayos.flashcardapi.Domain.Dto</Name>

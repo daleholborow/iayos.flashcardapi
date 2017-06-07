@@ -7,7 +7,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 {
 	public static class ApplicationConcreteMixinMethods
 	{
-		public static ApplicationModel FindApplicationByName(this IHasDbConnection implementation, string name)
+		public static ApplicationModel FindApplicationModelByNameFromDb(this IFindApplicationModelByNameFromMsSqlDb implementation, string name)
 		{
 			var row = implementation.Db.Single<ApplicationTable>(x => x.Name == name);
 			var model = row.ToApplicationModel();
@@ -15,7 +15,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 		}
 
 
-		public static ApplicationModel FindApplicationByGlobalId(this IHasDbConnection implementation, Guid globalId)
+		public static ApplicationModel FindApplicationModelByGlobalId(this IFindApplicationModelByGlobalIdFromMsSqlDb implementation, Guid globalId)
 		{
 			var row = implementation.Db.Single<ApplicationTable>(x => x.GlobalId == globalId);
 			var model = row.ToApplicationModel();
