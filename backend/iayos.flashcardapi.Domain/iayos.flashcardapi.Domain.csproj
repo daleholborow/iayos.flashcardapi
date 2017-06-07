@@ -47,11 +47,9 @@
     <Compile Include="Interactor\Application\Create\CreateApplicationOutput.cs" />
     <Compile Include="Interactor\Application\Create\ICreateApplicationGateway.cs" />
     <Compile Include="Interactor\Application\Create\ICreateApplicationValidator.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationByName.cs" />
     <Compile Include="Interactor\Application\Find\FindApplicationInteractor.cs" />
     <Compile Include="Interactor\Application\Find\FindApplicationInput.cs" />
     <Compile Include="Interactor\Application\Find\FindApplicationOutput.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationByGlobalId.cs" />
     <Compile Include="Interactor\Application\Find\IFindApplicationGateway.cs" />
     <Compile Include="Interactor\Application\Find\IFindApplicationValidator.cs" />
     <Compile Include="Interactor\Application\Get\GetApplicationInput.cs" />

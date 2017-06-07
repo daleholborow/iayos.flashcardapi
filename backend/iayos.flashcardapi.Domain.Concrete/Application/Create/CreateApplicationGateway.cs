@@ -3,20 +3,14 @@ using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack.OrmLite;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application
+namespace iayos.flashcardapi.Domain.Concrete.Application.Create
 {
-	public class CreateApplicationGateway :
-			ICreateApplicationGateway,
-			IHasDbConnection
+	public class CreateApplicationGateway : FlashCardGateway, ICreateApplicationGateway
 	{
-
-		public IDbConnection Db { get; }
-
-
-		public CreateApplicationGateway(IDbConnection dbConnection)
+		public CreateApplicationGateway(IDbConnection dbConnection) : base(dbConnection)
 		{
-			Db = dbConnection;
 		}
+
 
 		public long Insert(ApplicationModel application)
 		{
@@ -24,8 +18,5 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 			var id = Db.Insert(table, true);
 			return id;
 		}
-
-		
 	}
-
 }

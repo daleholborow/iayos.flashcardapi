@@ -3,9 +3,10 @@ using System.Data;
 using Funq;
 using iayos.flashcardapi.Api.Service;
 using iayos.flashcardapi.Domain.Concrete.Application;
+using iayos.flashcardapi.Domain.Concrete.Application.Create;
+using iayos.flashcardapi.Domain.Concrete.Application.Get;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.Domain.Interactor.Application.Find;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using iayos.flashcardapi.DomainModel.Flags;
 using iayos.flashcardapi.DomainModel.Models;
@@ -18,16 +19,10 @@ using Xunit;
 namespace iayos.flashcardapi.Api.Test
 {
 
-	public class ConsoleTest
+	public static class ContainerInitializer
 	{
-		readonly Container container;
-
-		//const string BaseUri = "http://localhost:2000/";
-
-		public ConsoleTest()
+		public static void InitializeOurContainerForGlory(Container container)
 		{
-			container = new Container();
-
 			container.RegisterAutoWired<GetApplicationInteractor>();
 			container.RegisterAutoWiredAs<GetApplicationGateway, IGetApplicationGateway>();
 			container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();
@@ -36,21 +31,8 @@ namespace iayos.flashcardapi.Api.Test
 			container.RegisterAutoWiredAs<CreateApplicationGateway, ICreateApplicationGateway>();
 			container.RegisterAutoWiredAs<CreateApplicationValidator, ICreateApplicationValidator>();
 
-
-			//container.Register<IGetApplicationGateway, GetApplicationGateway>()
-			//container.Register<IGetApplicationGateway, GetApplicationGateway>();
-
-			//container.Register<IFindApplicationValidator, FindApplicationValidator>();
-			//container.Register<MyRootType>();
-			//container.
-
-			//container.Verify();
-
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
-
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());
-
-
 
 			using (var db = container.Resolve<IDbConnectionFactory>().Open())
 			{
@@ -58,22 +40,28 @@ namespace iayos.flashcardapi.Api.Test
 				db.CreateTableIfNotExists<ApplicationTable>();
 				db.CreateTableIfNotExists<DeckTable>();
 				db.CreateTableIfNotExists<CardTable>();
-
 			}
+		}
+	}
+
+	public class DomainTester
+	{
+		readonly Container _container = new Container();
+
+		public DomainTester()
+		{
+			ContainerInitializer.InitializeOurContainerForGlory(_container);
 		}
 
 
 		[Fact]
-		public void InsertApplication()
+		public void CreateApplication()
 		{
-			//var client = new JsonServiceClient(BaseUri);
-			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
-
-			var interactor = container.Resolve<CreateApplicationInteractor>();
+			var interactor = _container.Resolve<CreateApplicationInteractor>();
 			var createApplicationInput = new CreateApplicationInput { Name = "test" };
 			UserModel agent = new UserModel();
 			var createApplicationOutput = interactor.Handle(agent, createApplicationInput);
+			Assert.True(createApplicationOutput.ApplicationGlobalId != Guid.Empty);
 		}
 
 
@@ -84,86 +72,79 @@ namespace iayos.flashcardapi.Api.Test
 			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
 			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
 
-			var interactor = container.Resolve<GetApplicationInteractor>();
+			var interactor = _container.Resolve<GetApplicationInteractor>();
 			var getApplicationInput = new GetApplicationInput {ApplicationGlobalId = Guid.NewGuid()};
 			UserModel agent = new UserModel();
 			var output = interactor.Handle(agent, getApplicationInput);
 		}
 	}
 
-	/*
 
-		public class AppHost : AppSelfHostBase
+	public class AppHostTester : AppSelfHostBase
+	{
+		public AppHostTester() : base("REST Example", typeof(ApplicationService).Assembly) { }
+
+		public override void Configure(Container container)
 		{
-			public AppHost() : base("REST Example", typeof(ApplicationService).Assembly) { }
+			ContainerInitializer.InitializeOurContainerForGlory(container);
+		}
+	}
 
-			public override void Configure(Container container)
-			{
-				container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
+	public class UnitTest1 : IDisposable
+	{
+		const string BaseUri = "http://localhost:2000/";
+		ServiceStackHost _appHost;
 
-				using (var db = container.Resolve<IDbConnectionFactory>().Open())
-				{
-					db.CreateTableIfNotExists<UserTable>();
-					db.CreateTableIfNotExists<ApplicationTable>();
-					db.CreateTableIfNotExists<DeckTable>();
-					db.CreateTableIfNotExists<CardTable>();
+		public UnitTest1()
+		{
+			//Start your AppHostTester on TestFixture SetUp
+			_appHost = new AppHostTester()
+				.Init()
+				.Start(BaseUri);
+		}
 
-				}
-			}
+		[Fact]
+		public void GetApplicationByApplicationGlobalId()
+		{
+			var client = new JsonServiceClient(BaseUri);
+			var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
+			Assert.True(all.Result.GlobalId == Guid.NewGuid());
 		}
 
 
-
-		public class UnitTest1
+		[Fact]
+		public void TestMethod1()
 		{
-			const string BaseUri = "http://localhost:2000/";
-			ServiceStackHost appHost;
 
-			public UnitTest1()
+			var repo = new IayosRepository();
+
+			var applicationModel = new ApplicationModel
 			{
-				//Start your AppHost on TestFixture SetUp
-				appHost = new AppHost()
-					.Init()
-					.Start(BaseUri);
+				Name = "SimpleSuomi"
+			};
+			repo.Save(applicationModel);
+
+			var topVerbsDeck = new DeckModel { Name = "Top Verbs", FrontLanguage = LanguageFlag.ENGLISH, BackLanguage = LanguageFlag.FINNISH };
+			repo.Save(topVerbsDeck);
+			ModelLinker.LinkOneToOne(applicationModel, am => am.Decks, topVerbsDeck, d => d.Application);
+
+			for (var i = 0; i < 20; i++)
+			{
+				var card = new CardModel { Order = i + 1, FrontText = "Front" + 1, BackText = "Back" + i };
+				repo.Save(card);
+				ModelLinker.LinkOneToOne(topVerbsDeck, d => d.Cards, card, c => c.Deck);
 			}
 
-			[Fact]
-			public void GetApplicationByApplicationGlobalId()
-			{
-				var client = new JsonServiceClient(BaseUri);
-				var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-				Assert.True(all.Result.GlobalId == Guid.NewGuid());
-			}
-
-			[Fact]
-			public void TestMethod1()
-			{
-
-				var repo = new IayosRepository();
-
-				var applicationModel = new ApplicationModel
-				{
-					Name = "SimpleSuomi"
-				};
-				repo.Save(applicationModel);
-
-				var topVerbsDeck = new DeckModel { Name = "Top Verbs", FrontLanguage = LanguageFlag.ENGLISH, BackLanguage = LanguageFlag.FINNISH };
-				repo.Save(topVerbsDeck);
-				ModelLinker.LinkOneToOne(applicationModel, am => am.Decks, topVerbsDeck, d => d.Application);
-
-				for (var i = 0; i < 20; i++)
-				{
-					var card = new CardModel { Order = i+1, FrontText = "Front"+1, BackText = "Back"+i };
-					repo.Save(card);
-					ModelLinker.LinkOneToOne(topVerbsDeck, d => d.Cards, card, c => c.Deck);
-				}
-
-				var kitchenDeck = new DeckModel { Name = "Kitchen Items", FrontLanguage = LanguageFlag.ENGLISH, BackLanguage = LanguageFlag.FINNISH };
-				repo.Save(kitchenDeck);
-				ModelLinker.LinkOneToOne(applicationModel, am => am.Decks, kitchenDeck, d => d.Application);
+			var kitchenDeck = new DeckModel { Name = "Kitchen Items", FrontLanguage = LanguageFlag.ENGLISH, BackLanguage = LanguageFlag.FINNISH };
+			repo.Save(kitchenDeck);
+			ModelLinker.LinkOneToOne(applicationModel, am => am.Decks, kitchenDeck, d => d.Application);
 
 
-			}
 		}
-		*/
+
+		public void Dispose()
+		{
+			_appHost?.Dispose();
+		}
+	}
 }

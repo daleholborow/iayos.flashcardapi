@@ -1,8 +1,7 @@
-using System;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application
+namespace iayos.flashcardapi.Domain.Concrete.Application.Get
 {
 	public class GetApplicationValidator : IGetApplicationValidator
 	{

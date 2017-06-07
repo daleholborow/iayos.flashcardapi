@@ -52,16 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\ApplicationConcreteMappings.cs" />
-    <Compile Include="Application\CreateApplicationGateway.cs" />
-    <Compile Include="Application\CreateApplicationValidator.cs" />
-    <Compile Include="Application\FindApplicationGateway.cs" />
-    <Compile Include="Application\GetApplicationGateway.cs" />
-    <Compile Include="Application\GetApplicationValidator.cs" />
+    <Compile Include="Application\ApplicationMappings.cs" />
+    <Compile Include="Application\Create\CreateApplicationGateway.cs" />
+    <Compile Include="Application\Create\CreateApplicationValidator.cs" />
+    <Compile Include="Application\Find\FindApplicationGateway.cs" />
+    <Compile Include="FlashCardGateway.cs" />
+    <Compile Include="Application\Get\GetApplicationGateway.cs" />
+    <Compile Include="Application\Get\GetApplicationValidator.cs" />
     <Compile Include="Application\IFindApplicationModelByGlobalIdFromMsSqlDb.cs" />
     <Compile Include="Application\IFindApplicationModelByNameFromMsSqlDb.cs" />
     <Compile Include="Application\IHasDbConnection.cs" />
-    <Compile Include="Application\ApplicationConcreteMixinMethods.cs" />
+    <Compile Include="Application\ApplicationMixinMethods.cs" />
+    <Compile Include="FlashCardValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

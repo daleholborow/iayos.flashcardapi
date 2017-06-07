@@ -3,12 +3,10 @@ using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application.Find;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application
+namespace iayos.flashcardapi.Domain.Concrete.Application.Find
 {
-	public class FindApplicationGateway : IFindApplicationGateway, IFindApplicationModelByNameFromMsSqlDb, IFindApplicationModelByGlobalIdFromMsSqlDb
+	public class FindApplicationGateway : FlashCardGateway, IFindApplicationGateway, IFindApplicationModelByNameFromMsSqlDb, IFindApplicationModelByGlobalIdFromMsSqlDb
 	{
-		public IDbConnection Db { get; set; }
-
 
 		public ApplicationModel FindApplicationByName(string applicationName)
 		{
@@ -21,6 +19,10 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 		{
 			var application = this.FindApplicationModelByGlobalId(applicationGlobalId);
 			return application;
+		}
+
+		public FindApplicationGateway(IDbConnection dbConnection) : base(dbConnection)
+		{
 		}
 	}
 }

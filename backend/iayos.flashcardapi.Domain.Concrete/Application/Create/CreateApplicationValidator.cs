@@ -3,17 +3,13 @@ using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application
+namespace iayos.flashcardapi.Domain.Concrete.Application.Create
 {
-	public class CreateApplicationValidator : ICreateApplicationValidator, IFindApplicationModelByNameFromMsSqlDb
+	public class CreateApplicationValidator : FlashCardValidator, ICreateApplicationValidator,
+		IFindApplicationModelByNameFromMsSqlDb
 	{
-
-		public IDbConnection Db { get; }
-
-
-		public CreateApplicationValidator(IDbConnection dbConnection)
+		public CreateApplicationValidator(IDbConnection dbConnection) : base(dbConnection)
 		{
-			Db = dbConnection;
 		}
 
 		public void ThrowOnInsufficientPermissions(UserModel agent)
@@ -32,6 +28,5 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 			if (application != null) throw new Exception("Not allowed duplicate application names");
 			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}
-		
 	}
 }

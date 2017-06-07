@@ -5,7 +5,7 @@ using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	public static class ApplicationConcreteMixinMethods
+	public static class ApplicationMixinMethods
 	{
 		public static ApplicationModel FindApplicationModelByNameFromDb(this IFindApplicationModelByNameFromMsSqlDb implementation, string name)
 		{
