@@ -1,3 +1,4 @@
+using System;
 using ServiceStack.DataAnnotations;
 
 namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
@@ -5,8 +6,11 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	[Alias("Score")]
 	public class ScoreTable : AuditableTable
 	{
-		[AutoIncrement]
-		public int ScoreId { get; set; }
+		//[AutoIncrement]
+		//public int ScoreId { get; set; }
+
+		[PrimaryKey]
+		public Guid ScoreId { get; set; }
 
 
 		[References(typeof(CardTable))]

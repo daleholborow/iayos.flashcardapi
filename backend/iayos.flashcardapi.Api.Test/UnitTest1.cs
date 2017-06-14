@@ -1,116 +1,104 @@
 ﻿using System;
-using System.Data;
-using Funq;
-using iayos.flashcardapi.Api.Service;
-using iayos.flashcardapi.Domain.Concrete.Application;
-using iayos.flashcardapi.Domain.Concrete.Application.Create;
-using iayos.flashcardapi.Domain.Concrete.Application.Get;
-using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
-using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.Domain.Interactor.Application.Get;
-using iayos.flashcardapi.DomainModel.Flags;
-using iayos.flashcardapi.DomainModel.Models;
+using System.Collections.Generic;
+using System.Net;
 using iayos.flashcardapi.ServiceModel.Application.Messages;
 using ServiceStack;
-using ServiceStack.Data;
-using ServiceStack.OrmLite;
+using ServiceStack.Text;
 using Xunit;
 
 namespace iayos.flashcardapi.Api.Test
 {
 
-	public static class ContainerInitializer
+	[Route("/secured")]
+	public class Secured : IReturn<SecuredResponse>
 	{
-		public static void InitializeOurContainerForGlory(Container container)
-		{
-			container.RegisterAutoWired<GetApplicationInteractor>();
-			container.RegisterAutoWiredAs<GetApplicationGateway, IGetApplicationGateway>();
-			container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();
-
-			container.RegisterAutoWired<CreateApplicationInteractor>();
-			container.RegisterAutoWiredAs<CreateApplicationGateway, ICreateApplicationGateway>();
-			container.RegisterAutoWiredAs<CreateApplicationValidator, ICreateApplicationValidator>();
-
-			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
-			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());
-
-			using (var db = container.Resolve<IDbConnectionFactory>().Open())
-			{
-				db.CreateTableIfNotExists<UserTable>();
-				db.CreateTableIfNotExists<ApplicationTable>();
-				db.CreateTableIfNotExists<DeckTable>();
-				db.CreateTableIfNotExists<CardTable>();
-			}
-		}
+		public string Name { get; set; }
 	}
 
-	public class DomainTester
+	public class SecuredResponse
 	{
-		readonly Container _container = new Container();
+		public string Result { get; set; }
 
-		public DomainTester()
-		{
-			ContainerInitializer.InitializeOurContainerForGlory(_container);
-		}
-
-
-		[Fact]
-		public void CreateApplication()
-		{
-			var interactor = _container.Resolve<CreateApplicationInteractor>();
-			var createApplicationInput = new CreateApplicationInput { Name = "test" };
-			UserModel agent = new UserModel();
-			var createApplicationOutput = interactor.Handle(agent, createApplicationInput);
-			Assert.True(createApplicationOutput.ApplicationGlobalId != Guid.Empty);
-		}
-
-
-		[Fact]
-		public void GetApplicationByApplicationGlobalId()
-		{
-			//var client = new JsonServiceClient(BaseUri);
-			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
-
-			var interactor = _container.Resolve<GetApplicationInteractor>();
-			var getApplicationInput = new GetApplicationInput {ApplicationGlobalId = Guid.NewGuid()};
-			UserModel agent = new UserModel();
-			var output = interactor.Handle(agent, getApplicationInput);
-		}
-	}
-
-
-	public class AppHostTester : AppSelfHostBase
-	{
-		public AppHostTester() : base("REST Example", typeof(ApplicationService).Assembly) { }
-
-		public override void Configure(Container container)
-		{
-			ContainerInitializer.InitializeOurContainerForGlory(container);
-		}
+		public ResponseStatus ResponseStatus { get; set; }
 	}
 
 	public class UnitTest1 : IDisposable
 	{
-		const string BaseUri = "http://localhost:2000/";
-		ServiceStackHost _appHost;
+		public const string UserName = "user";
+		public const string Password = "p@55word";
+		public const string UserNameWithSessionRedirect = "user2";
+		public const string PasswordForSessionRedirect = "p@55word2";
+		public const string SessionRedirectUrl = "specialLandingPage.html";
+		public const string LoginUrl = "specialLoginPage.html";
+		public const string EmailBasedUsername = "user@email.com";
+		public const string PasswordForEmailBasedAccount = "p@55word3";
+
+		const string ListeningOn = "http://localhost:2000/";
+		//ServiceStackHost _appHost;
+		AppHostTester _appHost;
 
 		public UnitTest1()
 		{
 			//Start your AppHostTester on TestFixture SetUp
-			_appHost = new AppHostTester()
-				.Init()
-				.Start(BaseUri);
+			_appHost = new AppHostTester();
+			_appHost.Init();
+			_appHost.Start(ListeningOn);
+		}
+
+
+		IServiceClient GetClientWithUserPassword()
+		{
+			return new JsonServiceClient(ListeningOn)
+			{
+				UserName = UserName,
+				Password = Password
+			};
+		}
+
+
+		IServiceClient GetClient()
+		{
+			return new JsonServiceClient(ListeningOn);
+		}
+
+		
+
+		public void MakeSomeUsersDale()
+		{
+			_appHost.CreateUser(1, UserName, null, Password, new List<string> { "TheRole" }, new List<string> { "ThePermission" });
+			_appHost.CreateUser(2, UserNameWithSessionRedirect, null, PasswordForSessionRedirect);
+			_appHost.CreateUser(3, null, EmailBasedUsername, PasswordForEmailBasedAccount);
+		}
+
+		
+		[Fact]
+		public void No_Credentials_throws_UnAuthorized()
+		{
+			try
+			{
+				var client = GetClient();
+				var request = new Secured { Name = "test" };
+				var response = client.Send<SecuredResponse>(request);
+
+				//Assert.Fail("Shouldn't be allowed");
+				throw new Exception("Shouldnt be allowed");
+			}
+			catch (WebServiceException webEx)
+			{
+				Assert.Equal((int)HttpStatusCode.Unauthorized, webEx.StatusCode);
+				Console.WriteLine(webEx.ResponseDto.Dump());
+			}
 		}
 
 		[Fact]
 		public void GetApplicationByApplicationGlobalId()
 		{
-			var client = new JsonServiceClient(BaseUri);
+			var client = new JsonServiceClient(ListeningOn);
 			var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
 			Assert.True(all.Result.GlobalId == Guid.NewGuid());
 		}
 
+/*
 
 		[Fact]
 		public void TestMethod1()
@@ -141,6 +129,7 @@ namespace iayos.flashcardapi.Api.Test
 
 
 		}
+*/
 
 		public void Dispose()
 		{

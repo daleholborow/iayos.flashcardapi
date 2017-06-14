@@ -32,7 +32,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			// return the bare minimum of data!
 			return new CreateApplicationOutput
 			{
-				ApplicationGlobalId = application.GlobalId
+				ApplicationGlobalId = application.ApplicationId
 			};
 		}
 	}

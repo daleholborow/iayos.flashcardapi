@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ServiceStack.DataAnnotations;
 
 namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
@@ -7,8 +8,11 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	[Alias("Application")]
 	public class ApplicationTable : AuditableTable 
     {
-		[AutoIncrement]
-		public long ApplicationId { get; set; }
+		//[AutoIncrement]
+		//public long ApplicationId { get; set; }
+
+		[PrimaryKey]
+		public Guid ApplicationId { get; set; }
 
 		public string Name { get; set; }
 

@@ -10,7 +10,6 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 		{
 			if (row == null) return null;
 			var model = row.ConvertTo<ApplicationModel>();
-			model.Id = row.ApplicationId;
 			return model;
 		}
 

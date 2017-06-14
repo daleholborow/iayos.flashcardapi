@@ -56,6 +56,8 @@
     <Compile Include="Application\Create\CreateApplicationGateway.cs" />
     <Compile Include="Application\Create\CreateApplicationValidator.cs" />
     <Compile Include="Application\Find\FindApplicationGateway.cs" />
+    <Compile Include="Deck\Create\CreateDeckGateway.cs" />
+    <Compile Include="Deck\Create\CreateDeckValidator.cs" />
     <Compile Include="FlashCardGateway.cs" />
     <Compile Include="Application\Get\GetApplicationGateway.cs" />
     <Compile Include="Application\Get\GetApplicationValidator.cs" />

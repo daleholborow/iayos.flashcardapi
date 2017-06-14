@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace iayos.flashcardapi.DomainModel.Models
 {
@@ -8,9 +9,11 @@ namespace iayos.flashcardapi.DomainModel.Models
 	/// </summary>
 	public class ApplicationModel : Infrastructure.DomainModel
 	{
+		public Guid ApplicationId { get; set; }
+
 		public string Name { get; set; }
 		
 		public ICollection<DeckModel> Decks { get; set; } = new List<DeckModel>();
-
+		
 	}
 }
