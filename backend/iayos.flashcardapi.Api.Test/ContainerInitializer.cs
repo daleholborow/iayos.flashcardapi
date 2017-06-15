@@ -1,11 +1,13 @@
+using System;
 using System.Data;
+using System.Security.Cryptography;
 using Funq;
 using iayos.flashcardapi.Domain.Concrete.Application.Create;
 using iayos.flashcardapi.Domain.Concrete.Application.Get;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
-using ServiceStack;
+using iayos.sequentialguid;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
 using ServiceStack.Data;
@@ -27,6 +29,7 @@ namespace iayos.flashcardapi.Api.Test
 
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());
+			container.Register<ISequentialGuidGenerator>(c => new MsSqlDbSequentialGuidGenerator());
 
 			using (var db = container.Resolve<IDbConnectionFactory>().Open())
 			{
@@ -47,4 +50,9 @@ namespace iayos.flashcardapi.Api.Test
 			//Implement this interface to adjust it to your app's data storage
 		}
 	}
+
+	
+
+
+	
 }

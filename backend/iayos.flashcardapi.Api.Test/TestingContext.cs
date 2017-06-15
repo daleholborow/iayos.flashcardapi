@@ -1,28 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net;
 using iayos.flashcardapi.ServiceModel.Application.Messages;
+using iayos.sequentialguid;
+using Ploeh.AutoFixture;
 using ServiceStack;
 using ServiceStack.Text;
 using Xunit;
 
 namespace iayos.flashcardapi.Api.Test
 {
-
-	[Route("/secured")]
-	public class Secured : IReturn<SecuredResponse>
-	{
-		public string Name { get; set; }
-	}
-
-	public class SecuredResponse
-	{
-		public string Result { get; set; }
-
-		public ResponseStatus ResponseStatus { get; set; }
-	}
-
-	public class UnitTest1 : IDisposable
+	public abstract class TestingContext : IDisposable
 	{
 		public const string UserName = "user";
 		public const string Password = "p@55word";
@@ -34,15 +23,27 @@ namespace iayos.flashcardapi.Api.Test
 		public const string PasswordForEmailBasedAccount = "p@55word3";
 
 		const string ListeningOn = "http://localhost:2000/";
-		//ServiceStackHost _appHost;
-		AppHostTester _appHost;
+		//ServiceStackHost _testingAppHost;
+		TestingAppHost _testingAppHost;
 
-		public UnitTest1()
+		/// <summary>
+		/// Get direct access to the testing apphost db connection
+		/// </summary>
+		public IDbConnection Db => _testingAppHost.GetDbConnection();
+
+		public ISequentialGuidGenerator DbGuidGenerator => _testingAppHost.GetDbSequentialGuidGenerator();
+
+		/// <summary>
+		/// Fixture used to generate randomised test data
+		/// </summary>
+		protected Fixture Fixture = new Fixture();
+
+		public TestingContext()
 		{
-			//Start your AppHostTester on TestFixture SetUp
-			_appHost = new AppHostTester();
-			_appHost.Init();
-			_appHost.Start(ListeningOn);
+			//Start your TestingAppHost on TestFixture SetUp
+			_testingAppHost = new TestingAppHost();
+			_testingAppHost.Init();
+			_testingAppHost.Start(ListeningOn);
 		}
 
 
@@ -65,9 +66,9 @@ namespace iayos.flashcardapi.Api.Test
 
 		public void MakeSomeUsersDale()
 		{
-			_appHost.CreateUser(1, UserName, null, Password, new List<string> { "TheRole" }, new List<string> { "ThePermission" });
-			_appHost.CreateUser(2, UserNameWithSessionRedirect, null, PasswordForSessionRedirect);
-			_appHost.CreateUser(3, null, EmailBasedUsername, PasswordForEmailBasedAccount);
+			_testingAppHost.CreateUser(1, UserName, null, Password, new List<string> { "TheRole" }, new List<string> { "ThePermission" });
+			_testingAppHost.CreateUser(2, UserNameWithSessionRedirect, null, PasswordForSessionRedirect);
+			_testingAppHost.CreateUser(3, null, EmailBasedUsername, PasswordForEmailBasedAccount);
 		}
 
 		
@@ -93,9 +94,27 @@ namespace iayos.flashcardapi.Api.Test
 		[Fact]
 		public void GetApplicationByApplicationGlobalId()
 		{
-			var client = new JsonServiceClient(ListeningOn);
+			var client = GetClient();
 			var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
 			Assert.True(all.Result.GlobalId == Guid.NewGuid());
+		}
+
+
+		/// <summary>
+		/// Models the front page of SS where we load up all the active decks in the application
+		/// </summary>
+		[Fact]
+		public void GetDecksByApplicationId()
+		{
+
+			// Inject a new Application
+
+			// Inject some Decks
+
+
+			//var client = GetClient();
+			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
+			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
 		}
 
 /*
@@ -133,7 +152,21 @@ namespace iayos.flashcardapi.Api.Test
 
 		public void Dispose()
 		{
-			_appHost?.Dispose();
+			_testingAppHost?.Dispose();
 		}
+	}
+
+
+	[Route("/secured")]
+	public class Secured : IReturn<SecuredResponse>
+	{
+		public string Name { get; set; }
+	}
+
+	public class SecuredResponse
+	{
+		public string Result { get; set; }
+
+		public ResponseStatus ResponseStatus { get; set; }
 	}
 }

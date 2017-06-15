@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using Funq;
 using iayos.flashcardapi.Api.Service;
+using iayos.sequentialguid;
 using ServiceStack;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
 
 namespace iayos.flashcardapi.Api.Test
 {
-	public class AppHostTester : AppSelfHostBase
+	public class TestingAppHost : AppSelfHostBase
 	{
 		private InMemoryAuthRepository _userRep;
 
-		public AppHostTester() : base("REST Example", typeof(ApplicationService).Assembly)
+		public TestingAppHost() : base("REST Example", typeof(ApplicationService).Assembly)
 		{
 		}
 
@@ -77,5 +78,12 @@ namespace iayos.flashcardapi.Api.Test
 				password
 			);
 		}
+
+		public ISequentialGuidGenerator GetDbSequentialGuidGenerator()
+		{
+			return Container.Resolve<ISequentialGuidGenerator>();
+		}
+
 	}
+
 }

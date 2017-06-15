@@ -37,8 +37,14 @@
     <Reference Include="DotNetOpenAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetOpenAuth.Ultimate.4.3.4.13329\lib\net45-full\DotNetOpenAuth.dll</HintPath>
     </Reference>
+    <Reference Include="iayos.sequentialguid, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iayos.sequentialguid.0.1.0\lib\net461\iayos.sequentialguid.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Ploeh.AutoFixture, Version=3.50.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.3.50.2\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack, Version=4.5.10.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.4.5.10\lib\net45\ServiceStack.dll</HintPath>
     </Reference>
@@ -100,7 +106,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppHostTester.cs" />
+    <Compile Include="SimpleSuomiDataInjector.cs" />
+    <Compile Include="TestingAppHost.cs" />
     <Compile Include="ContainerInitializer.cs" />
     <Compile Include="CustomAuthProvider.cs" />
     <Compile Include="CustomUserSession.cs" />
@@ -109,7 +116,7 @@
     <Compile Include="ModelLinker.cs" />
     <Compile Include="ModelRepository.cs" />
     <Compile Include="iayosRepository.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="TestingContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
