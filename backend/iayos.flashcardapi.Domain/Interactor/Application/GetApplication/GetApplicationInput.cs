@@ -4,6 +4,6 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Get
 {
 	public class GetApplicationInput
 	{
-		public Guid? ApplicationGlobalId { get; set; }
+		public Guid? ApplicationId { get; set; }
 	}
 }

@@ -36,7 +36,7 @@ namespace iayos.flashcardapi.Api.Test
 		{
 			if (entity.Id == Guid.Empty)
 			{
-				entity.GlobalId = Store.Count + 1;
+				entity.Id = Store.Count + 1;
 			}
 
 			Store[entity.Id] = entity;
@@ -46,9 +46,9 @@ namespace iayos.flashcardapi.Api.Test
 /*
 		public TDomainModel Save(TDomainModel entity)
 		{
-			if (entity.GlobalId == Guid.Empty)
+			if (entity.Id == Guid.Empty)
 			{
-				entity.GlobalId = Store.Count + 1;
+				entity.Id = Store.Count + 1;
 			}
 
 			Store[entity.Id] = entity;

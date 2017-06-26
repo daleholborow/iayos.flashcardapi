@@ -21,7 +21,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Get
 			_validator.ThrowOnInsufficientPermissions(agent);
 
 			// pass domainmodel to gateway for persistence
-			var model = _gateway.GetApplicationModelByGlobalId(input.ApplicationGlobalId.GetValueOrDefault());
+			var model = _gateway.GetApplicationModelById(input.ApplicationId.GetValueOrDefault());
 
 			// return the bare minimum of data!
 			var output = new GetApplicationOutput

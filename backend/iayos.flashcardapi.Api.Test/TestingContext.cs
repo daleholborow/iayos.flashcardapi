@@ -92,11 +92,11 @@ namespace iayos.flashcardapi.Api.Test
 		}
 
 		[Fact]
-		public void GetApplicationByApplicationGlobalId()
+		public void GetApplicationByApplicationId()
 		{
 			var client = GetClient();
-			var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-			Assert.True(all.Result.GlobalId == Guid.NewGuid());
+			var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			Assert.True(all.Result.Id == Guid.NewGuid());
 		}
 
 
@@ -113,8 +113,8 @@ namespace iayos.flashcardapi.Api.Test
 
 
 			//var client = GetClient();
-			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
+			//var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			//Assert.True(all.Result.Id == Guid.NewGuid());
 		}
 
 /*

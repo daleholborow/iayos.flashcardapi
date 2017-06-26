@@ -5,7 +5,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 {
 	public class CreateDeckInput
 	{
-		public Guid ApplicationGlobalId { get; set; }
+		public Guid ApplicationId { get; set; }
 
 
 		public string Name { get; set; }

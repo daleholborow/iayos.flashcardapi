@@ -16,8 +16,8 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 		}
 
 
-		public static ApplicationModel FindApplicationModelByGlobalId(
-			this IFindApplicationModelByGlobalIdFromMsSqlDb implementation, Guid globalId)
+		public static ApplicationModel FindApplicationModelById(
+			this IFindApplicationModelByIdFromMsSqlDb implementation, Guid globalId)
 		{
 			var row = implementation.Db.Single<ApplicationTable>(x => x.ApplicationId == globalId);
 			var model = row.ToApplicationModel();

@@ -8,11 +8,16 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	[Alias("Deck")]
 	public class DeckTable : AuditableTable
 	{
-		//[AutoIncrement]
-		//public int DeckId { get; set; }
-
 		[PrimaryKey]
 		public Guid DeckId { get; set; }
+
+
+		[References(typeof(ApplicationTable))]
+		public Guid ApplicationId { get; set; }
+
+		[Reference]
+		public ApplicationTable Application { get; set; }
+
 
 		public string Name { get; set; }
 

@@ -10,7 +10,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Find
 		public string Name { get; set; }
 
 
-		public Guid? GlobalId { get; set; }
+		public Guid? Id { get; set; }
 
 	}
 }

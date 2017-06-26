@@ -5,15 +5,15 @@ using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application.GetApplication
 {
-	public class GetApplicationGateway : FlashCardGateway, IGetApplicationGateway, IFindApplicationModelByGlobalIdFromMsSqlDb
+	public class GetApplicationGateway : FlashCardGateway, IGetApplicationGateway, IFindApplicationModelByIdFromMsSqlDb
 	{
 		public GetApplicationGateway(IDbConnection dbConnection) : base(dbConnection)
 		{
 		}
 
-		public ApplicationModel GetApplicationModelByGlobalId(Guid applicationGlobalId)
+		public ApplicationModel GetApplicationModelById(Guid applicationId)
 		{
-			var application = this.FindApplicationModelByGlobalId(applicationGlobalId);
+			var application = this.FindApplicationModelById(applicationId);
 			if (application == null) throw new Exception("NotFound");
 			return application;
 		}

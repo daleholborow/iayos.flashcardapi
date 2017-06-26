@@ -6,7 +6,7 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	public abstract class AuditableTable
 	{
 
-		//public Guid GlobalId { get; set; }
+		//public Guid Id { get; set; }
 
 
 		public bool IsDeleted { get; set; }

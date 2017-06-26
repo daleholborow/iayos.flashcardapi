@@ -3,7 +3,7 @@ using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Application.Messages
 {
-	[Route("/applications/{applicationGlobalId}", HttpMethods.Get)]
+	[Route("/applications/{applicationId}", HttpMethods.Get)]
 	public class GetApplicationRequest : GetApplicationInput, IReturn<GetApplicationRequestResponse>
 	{
 		

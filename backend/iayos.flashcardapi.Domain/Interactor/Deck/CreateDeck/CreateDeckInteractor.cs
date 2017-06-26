@@ -23,7 +23,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 
 			var deckModel = input.ToDeckModel();
 
-			var deckGlobalId = _gateway.Insert(deckModel);
+			var deckId = _gateway.Insert(deckModel);
 			
 
 			//var existingDeckModel = _gateway.Get(-1);

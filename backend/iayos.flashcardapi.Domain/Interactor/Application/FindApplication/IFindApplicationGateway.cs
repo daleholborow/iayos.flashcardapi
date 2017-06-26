@@ -5,7 +5,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Find
 {
 	public interface IFindApplicationGateway 
 	{
-		ApplicationModel FindApplicationByGlobalId(Guid applicationGlobalId);
+		ApplicationModel FindApplicationById(Guid applicationId);
 
 		ApplicationModel FindApplicationByName(string applicationName);
 	}

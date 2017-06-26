@@ -24,19 +24,19 @@ namespace iayos.flashcardapi.Api.Test
 			var createApplicationInput = new CreateApplicationInput { Name = "test" };
 			UserModel agent = new UserModel();
 			var createApplicationOutput = interactor.Handle(agent, createApplicationInput);
-			Assert.True(createApplicationOutput.ApplicationGlobalId != Guid.Empty);
+			Assert.True(createApplicationOutput.ApplicationId != Guid.Empty);
 		}
 
 
 		[Fact]
-		public void GetApplicationByApplicationGlobalId()
+		public void GetApplicationByApplicationId()
 		{
 			//var client = new JsonServiceClient(BaseUri);
-			//var all = client.Get(new GetApplicationRequest { ApplicationGlobalId = Guid.NewGuid() });
-			//Assert.True(all.Result.GlobalId == Guid.NewGuid());
+			//var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			//Assert.True(all.Result.Id == Guid.NewGuid());
 
 			var interactor = _container.Resolve<GetApplicationInteractor>();
-			var getApplicationInput = new GetApplicationInput {ApplicationGlobalId = Guid.NewGuid()};
+			var getApplicationInput = new GetApplicationInput {ApplicationId = Guid.NewGuid()};
 			UserModel agent = new UserModel();
 			var output = interactor.Handle(agent, getApplicationInput);
 		}

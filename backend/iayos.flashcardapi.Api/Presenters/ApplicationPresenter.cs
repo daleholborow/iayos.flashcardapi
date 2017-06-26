@@ -18,7 +18,7 @@ namespace iayos.flashcardapi.Api.Presenters
 			var createApplicationOutput = createApplicationInteractor.Handle(agent, createApplicationInput);
 
 			var getApplicationInteractor = TryResolve<GetApplicationInteractor>();
-			var getApplicationInput = new GetApplicationInput {ApplicationGlobalId = createApplicationOutput.ApplicationGlobalId};
+			var getApplicationInput = new GetApplicationInput {ApplicationId = createApplicationOutput.ApplicationId};
 			var getApplicationOutput = getApplicationInteractor.Handle(agent, getApplicationInput);
 
 			var response = new CreateApplicationRequestResponse {Result = getApplicationOutput.Application};
@@ -31,7 +31,7 @@ namespace iayos.flashcardapi.Api.Presenters
 			var agent = new UserModel();
 
 			var getApplicationInteractor = TryResolve<GetApplicationInteractor>();
-			var getApplicationInput = new GetApplicationInput {ApplicationGlobalId = request.ApplicationGlobalId};
+			var getApplicationInput = new GetApplicationInput {ApplicationId = request.ApplicationId};
 			var getApplicationOutput = getApplicationInteractor.Handle(agent, getApplicationInput);
 
 			var response = new GetApplicationRequestResponse {Result = getApplicationOutput.Application};
