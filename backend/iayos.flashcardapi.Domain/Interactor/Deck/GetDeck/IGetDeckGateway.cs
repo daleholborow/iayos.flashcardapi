@@ -5,6 +5,6 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeck
 {
 	public interface IGetDeckGateway
 	{
-		DeckModel GetDeckModelById(Guid applicationId);
+		DeckModel GetDeckModelById(Guid deckId);
 	}
 }

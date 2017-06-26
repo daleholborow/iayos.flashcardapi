@@ -5,10 +5,10 @@ using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application
 {
-	public static class ApplicationMixinMethods
+	public static class ApplicationMixins
 	{
-		public static ApplicationModel FindApplicationModelByNameFromDb(
-			this IFindApplicationModelByNameFromMsSqlDb implementation, string name)
+		public static ApplicationModel FindApplicationByNameFromDb(
+			this IFindApplicationByNameFromMsSqlDb implementation, string name)
 		{
 			var row = implementation.Db.Single<ApplicationTable>(x => x.Name == name);
 			var model = row.ToApplicationModel();
@@ -16,8 +16,8 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 		}
 
 
-		public static ApplicationModel FindApplicationModelById(
-			this IFindApplicationModelByIdFromMsSqlDb implementation, Guid globalId)
+		public static ApplicationModel FindApplicationById(
+			this IFindApplicationByIdFromMsSqlDb implementation, Guid globalId)
 		{
 			var row = implementation.Db.Single<ApplicationTable>(x => x.ApplicationId == globalId);
 			var model = row.ToApplicationModel();

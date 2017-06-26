@@ -4,7 +4,7 @@ using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack.OrmLite;
 
-namespace iayos.flashcardapi.Domain.Concrete.Deck.Create
+namespace iayos.flashcardapi.Domain.Concrete.Deck.CreateDeck
 {
 	public class CreateDeckGateway : FlashCardGateway, ICreateDeckGateway
 	{

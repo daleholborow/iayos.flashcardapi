@@ -5,7 +5,7 @@ using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application.GetApplication
 {
-	public class GetApplicationGateway : FlashCardGateway, IGetApplicationGateway, IFindApplicationModelByIdFromMsSqlDb
+	public class GetApplicationGateway : FlashCardGateway, IGetApplicationGateway, IFindApplicationByIdFromMsSqlDb
 	{
 		public GetApplicationGateway(IDbConnection dbConnection) : base(dbConnection)
 		{
@@ -13,7 +13,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.GetApplication
 
 		public ApplicationModel GetApplicationModelById(Guid applicationId)
 		{
-			var application = this.FindApplicationModelById(applicationId);
+			var application = this.FindApplicationById(applicationId);
 			if (application == null) throw new Exception("NotFound");
 			return application;
 		}

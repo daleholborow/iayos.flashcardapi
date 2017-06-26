@@ -23,6 +23,20 @@ namespace iayos.flashcardapi.Api.Test
 				.With(x => x.ApplicationId)
 				.Without(x => x.Decks)
 			);
+
+			Fixture.Customize<DeckTable>(obj => obj
+				.With(x => x.DeckId)
+				.Without(x => x.ApplicationId)
+				.Without(x => x.Application)
+				.Without(x => x.Cards)
+			);
+
+			Fixture.Customize<CardTable>(obj => obj
+				.With(x => x.CardId)
+				.Without(x => x.DeckId)
+				.Without(x => x.Deck)
+				.Without(x => x.Order)
+			);
 		}
 
 		protected Guid InjectApplication()
@@ -32,16 +46,18 @@ namespace iayos.flashcardapi.Api.Test
 			return application.ApplicationId;
 		}
 
-		protected Guid InjectCard()
+		protected Guid InjectCard(Guid? deckId = null)
 		{
 			var card = Fixture.Create<CardTable>();
+			card.DeckId = deckId ?? InjectDeck();
 			Db.Insert(card);
 			return card.CardId;
 		}
 
-		protected Guid InjectDeck()
+		protected Guid InjectDeck(Guid? applicationId = null)
 		{
 			var deck = Fixture.Create<DeckTable>();
+			deck.ApplicationId = applicationId ?? InjectApplication();
 			Db.Insert(deck);
 			return deck.DeckId;
 		}

@@ -1,13 +1,15 @@
-using System;
 using System.Data;
-using System.Security.Cryptography;
 using Funq;
 using iayos.flashcardapi.Domain.Concrete.Application.CreateApplication;
-using iayos.flashcardapi.Domain.Concrete.Application.Get;
 using iayos.flashcardapi.Domain.Concrete.Application.GetApplication;
+using iayos.flashcardapi.Domain.Concrete.Deck.CreateDeck;
+using iayos.flashcardapi.Domain.Concrete.Deck.GetDeck;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
+using iayos.flashcardapi.Domain.Interactor.Deck.Create;
+using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
+using iayos.flashcardapi.Domain.Interactor.Deck.GetDeck;
 using iayos.sequentialguid;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
@@ -28,6 +30,14 @@ namespace iayos.flashcardapi.Api.Test
 			container.RegisterAutoWiredAs<CreateApplicationGateway, ICreateApplicationGateway>();
 			container.RegisterAutoWiredAs<CreateApplicationValidator, ICreateApplicationValidator>();
 
+			container.RegisterAutoWired<GetDeckInteractor>();
+			container.RegisterAutoWiredAs<GetDeckGateway, IGetDeckGateway>();
+			container.RegisterAutoWiredAs<GetDeckValidator, IGetDeckValidator>();
+
+			container.RegisterAutoWired<CreateDeckInteractor>();
+			container.RegisterAutoWiredAs<CreateDeckGateway, ICreateDeckGateway>();
+			container.RegisterAutoWiredAs<CreateDeckValidator, ICreateDeckValidator>();
+
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());
 			container.Register<ISequentialGuidGenerator>(c => new MsSqlDbSequentialGuidGenerator());
@@ -38,6 +48,7 @@ namespace iayos.flashcardapi.Api.Test
 				db.CreateTableIfNotExists<ApplicationTable>();
 				db.CreateTableIfNotExists<DeckTable>();
 				db.CreateTableIfNotExists<CardTable>();
+				db.CreateTableIfNotExists<ScoreTable>();
 			}
 
 

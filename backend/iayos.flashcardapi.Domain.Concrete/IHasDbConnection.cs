@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application
+namespace iayos.flashcardapi.Domain.Concrete
 {
 	public interface IHasDbConnection
 	{

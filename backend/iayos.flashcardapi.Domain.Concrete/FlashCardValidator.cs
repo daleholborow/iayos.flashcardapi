@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using iayos.flashcardapi.Domain.Concrete.Application;
 
 namespace iayos.flashcardapi.Domain.Concrete
 {
