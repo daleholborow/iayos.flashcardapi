@@ -3,7 +3,7 @@ using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application.Get
+namespace iayos.flashcardapi.Domain.Concrete.Application.GetApplication
 {
 	public class GetApplicationGateway : FlashCardGateway, IGetApplicationGateway, IFindApplicationModelByGlobalIdFromMsSqlDb
 	{

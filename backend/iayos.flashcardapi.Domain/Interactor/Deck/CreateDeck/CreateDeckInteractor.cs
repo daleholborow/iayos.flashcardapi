@@ -1,7 +1,8 @@
 using iayos.flashcardapi.Domain.Infrastructure;
+using iayos.flashcardapi.Domain.Interactor.Deck.Create;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
+namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 {
 	public class CreateDeckInteractor : IInteractor<CreateDeckInput, CreateDeckOutput>
 	{
@@ -20,8 +21,10 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.Create
 		{
 			//_gateway.BeginTransaction();
 
-			var deckModel = new DeckModel(); // input.ToDeckModel();
+			var deckModel = input.ToDeckModel();
 
+			var deckGlobalId = _gateway.Insert(deckModel);
+			
 
 			//var existingDeckModel = _gateway.Get(-1);
 

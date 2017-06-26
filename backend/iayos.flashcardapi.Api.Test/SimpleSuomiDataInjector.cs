@@ -1,5 +1,6 @@
 using System;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
+using Ploeh.AutoFixture;
 using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Api.Test
@@ -20,29 +21,36 @@ namespace iayos.flashcardapi.Api.Test
 
 			Fixture.Customize<ApplicationTable>(obj => obj
 				.With(x => x.ApplicationId)
+				.Without(x => x.Decks)
 			);
 		}
 
 		protected Guid InjectApplication()
 		{
-
-			//Db.Insert()
-				throw new NotImplementedException();
+			var application = Fixture.Create<ApplicationTable>();
+			Db.Insert(application);
+			return application.ApplicationId;
 		}
 
 		protected Guid InjectCard()
 		{
-			throw new NotImplementedException();
+			var card = Fixture.Create<CardTable>();
+			Db.Insert(card);
+			return card.CardId;
 		}
 
 		protected Guid InjectDeck()
 		{
-			throw new NotImplementedException();
+			var deck = Fixture.Create<DeckTable>();
+			Db.Insert(deck);
+			return deck.DeckId;
 		}
 
 		protected Guid InjectUser()
 		{
-			throw new NotImplementedException();
+			var user = Fixture.Create<UserTable>();
+			Db.Insert(user);
+			return user.UserId;
 		}
 
 	}

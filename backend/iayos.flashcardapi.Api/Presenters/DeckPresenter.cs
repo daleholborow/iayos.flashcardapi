@@ -1,8 +1,8 @@
 ﻿using iayos.flashcardapi.Api.Infrastructure;
 
-namespace iayos.flashcardapi.Api.Service
+namespace iayos.flashcardapi.Api.Presenters
 {
-	public class DeckService : FlashCardApiService
+	public class DeckPresenter : FlashCardApiPresenter
 	{
 
 		//public CreateDeckRequestResponse Post(CreateDeckRequest request)

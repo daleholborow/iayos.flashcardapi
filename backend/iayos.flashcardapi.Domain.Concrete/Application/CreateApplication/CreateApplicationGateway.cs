@@ -1,9 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack.OrmLite;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application.Create
+namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 {
 	public class CreateApplicationGateway : FlashCardGateway, ICreateApplicationGateway
 	{
@@ -12,11 +13,11 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.Create
 		}
 
 
-		public long Insert(ApplicationModel application)
+		public Guid Insert(ApplicationModel application)
 		{
 			var table = application.ToApplicationTable();
-			var id = Db.Insert(table, true);
-			return id;
+			Db.Insert(table);
+			return table.ApplicationId;
 		}
 	}
 }

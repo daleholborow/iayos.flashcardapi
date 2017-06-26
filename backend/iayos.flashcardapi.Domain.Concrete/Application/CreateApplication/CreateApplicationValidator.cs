@@ -3,7 +3,7 @@ using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Concrete.Application.Create
+namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 {
 	public class CreateApplicationValidator : FlashCardValidator, ICreateApplicationValidator,
 		IFindApplicationModelByNameFromMsSqlDb

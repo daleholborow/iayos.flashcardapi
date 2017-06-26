@@ -4,9 +4,9 @@ using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Application.Messages;
 
-namespace iayos.flashcardapi.Api.Service
+namespace iayos.flashcardapi.Api.Presenters
 {
-	public class ApplicationService : FlashCardApiService
+	public class ApplicationPresenter : FlashCardApiPresenter
 	{
 		
 		public CreateApplicationRequestResponse Post(CreateApplicationRequest request)
