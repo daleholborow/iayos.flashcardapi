@@ -1,7 +1,9 @@
-namespace iayos.flashcardapi.Domain.Interactor.Deck
+using System;
+
+namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 {
 	public class CreateDeckOutput
 	{
-		public int DeckId { get; set; }
+		public Guid DeckId { get; set; }
 	}
 }

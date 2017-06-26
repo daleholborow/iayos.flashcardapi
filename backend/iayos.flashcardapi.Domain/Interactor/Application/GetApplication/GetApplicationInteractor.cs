@@ -1,4 +1,5 @@
 ﻿using iayos.flashcardapi.Domain.Infrastructure;
+using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.Get
@@ -21,7 +22,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.Get
 			_validator.ThrowOnInsufficientPermissions(agent);
 
 			// pass domainmodel to gateway for persistence
-			var model = _gateway.GetApplicationModelById(input.ApplicationId.GetValueOrDefault());
+			var model = _gateway.GetApplicationModelById(input.ApplicationId);
 
 			// return the bare minimum of data!
 			var output = new GetApplicationOutput

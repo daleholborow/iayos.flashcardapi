@@ -1,5 +1,4 @@
-﻿using iayos.flashcardapi.Domain.Interactor.Deck.Create;
-using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
+﻿using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
 using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Deck.Messages

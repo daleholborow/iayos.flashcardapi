@@ -1,6 +1,7 @@
 using iayos.flashcardapi.Api.Infrastructure;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
+using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Application.Messages;
 

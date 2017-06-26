@@ -64,6 +64,12 @@
     <Compile Include="Interactor\Deck\CreateDeck\CreateDeckOutput.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\ICreateDeckGateway.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\ICreateDeckValidator.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\GetDeckInput.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\GetDeckInteractor.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\GetDeckMappings.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\GetDeckOutput.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\IGetDeckGateway.cs" />
+    <Compile Include="Interactor\Deck\GetDeck\IGetDeckValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">

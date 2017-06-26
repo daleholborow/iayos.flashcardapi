@@ -21,6 +21,14 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		public int Order { get; set; }
 
 
+		[Required]
+		[StringLength(200)]
+		public string Front { get; set; }
+
+
+		[Required]
+		[StringLength(200)]
+		public string Back { get; set; }
 
 	}
 

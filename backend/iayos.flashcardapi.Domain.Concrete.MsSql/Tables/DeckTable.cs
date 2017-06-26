@@ -8,6 +8,7 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	[Alias("Deck")]
 	public class DeckTable : AuditableTable
 	{
+
 		[PrimaryKey]
 		public Guid DeckId { get; set; }
 
@@ -19,6 +20,8 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		public ApplicationTable Application { get; set; }
 
 
+		[Required]
+		[StringLength(200)]
 		public string Name { get; set; }
 
 		/// <summary>

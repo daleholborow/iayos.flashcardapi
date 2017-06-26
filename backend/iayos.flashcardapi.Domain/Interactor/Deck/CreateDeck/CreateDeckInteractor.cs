@@ -34,7 +34,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 			//_gateway.CommitTransaction();
 
 			//var payload = deckModel.ConvertTo<DeckDto>();
-			return new CreateDeckOutput {DeckId = -666};
+			return new CreateDeckOutput {DeckId = deckId };
 		}
 
 

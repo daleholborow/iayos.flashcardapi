@@ -2,6 +2,7 @@ using System;
 using Funq;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.Domain.Interactor.Application.Get;
+using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.DomainModel.Models;
 using Xunit;
 
