@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using iayos.flashcardapi.DomainModel.Infrastructure;
@@ -11,12 +12,17 @@ namespace iayos.flashcardapi.Api.Test
 	public class ModelRepository<TDomainModel>
 		where TDomainModel : IDomainModel
 	{
-		private readonly Dictionary<long, TDomainModel> Store = new Dictionary<long, TDomainModel>();
+		private readonly Dictionary<Guid, TDomainModel> Store = new Dictionary<Guid, TDomainModel>();
 
 
-		public TDomainModel Get(long id)
+		//public TDomainModel Get(long id)
+		//{
+		//	return Store[id];
+		//}
+
+		public TDomainModel Get(Guid globalId)
 		{
-			return Store[id];
+			return Store[globalId];
 		}
 
 
@@ -26,9 +32,9 @@ namespace iayos.flashcardapi.Api.Test
 		}
 
 
-		public TDomainModel Save(TDomainModel entity)
+		/*public TDomainModel Save(TDomainModel entity)
 		{
-			if (entity.Id == 0)
+			if (entity.Id == Guid.Empty)
 			{
 				entity.Id = Store.Count + 1;
 			}
@@ -36,6 +42,18 @@ namespace iayos.flashcardapi.Api.Test
 			Store[entity.Id] = entity;
 
 			return entity;
-		}
+		}*/
+/*
+		public TDomainModel Save(TDomainModel entity)
+		{
+			if (entity.Id == Guid.Empty)
+			{
+				entity.Id = Store.Count + 1;
+			}
+
+			Store[entity.Id] = entity;
+
+			return entity;
+		}*/
 	}
 }

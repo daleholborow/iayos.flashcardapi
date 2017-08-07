@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.5.4\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.12\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,18 +47,19 @@
     <Compile Include="Tables\ApplicationTable.cs" />
     <Compile Include="Tables\AuditableTable.cs" />
     <Compile Include="Tables\CardTable.cs" />
+    <Compile Include="Tables\DeckCategoryTable.cs" />
     <Compile Include="Tables\DeckTable.cs" />
     <Compile Include="Tables\ScoreTable.cs" />
     <Compile Include="Tables\UserTable.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iayos.flashcardapi.DomainModel\iayos.flashcardapi.DomainModel.csproj">
       <Project>{494A9C5A-10CF-4F6A-97BB-D3A4E9D5B49B}</Project>
       <Name>iayos.flashcardapi.DomainModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,6 +46,8 @@
     <Compile Include="Application\Messages\CreateApplicationRequest.cs" />
     <Compile Include="Deck\Messages\CreateDeckRequest.cs" />
     <Compile Include="Deck\Messages\CreateDeckRequestResponse.cs" />
+    <Compile Include="Deck\Messages\GetDeckRequest.cs" />
+    <Compile Include="Deck\Messages\GetDeckRequestResponse.cs" />
     <Compile Include="Infrastructure\Message\ListPayloadResponse.cs" />
     <Compile Include="Infrastructure\Message\Response.cs" />
     <Compile Include="Infrastructure\Message\UnitPayloadResponse.cs" />
@@ -57,10 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.5.8\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.12\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Text.4.5.8\lib\net45\ServiceStack.Text.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\iayos.flashcardapi.Api\Bin\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
