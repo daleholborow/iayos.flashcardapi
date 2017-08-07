@@ -1,5 +1,6 @@
 ﻿using System;
 using iayos.flashcardapi.Domain.Infrastructure;
+using iayos.flashcardapi.Domain.Interactor.Application.FindApplication;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.Find

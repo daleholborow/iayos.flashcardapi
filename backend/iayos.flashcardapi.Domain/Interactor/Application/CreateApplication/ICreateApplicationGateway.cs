@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application
@@ -7,6 +8,6 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 	{
 		Guid Insert(ApplicationModel application);
 
-		ApplicationModel FindApplicationByName(string applicationName);
+		List<ApplicationModel> FindApplicationsByName(string applicationName);
 	}
 }

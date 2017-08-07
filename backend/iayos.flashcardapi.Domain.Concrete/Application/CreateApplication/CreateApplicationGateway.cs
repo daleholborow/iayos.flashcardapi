@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.DomainModel.Models;
@@ -21,10 +22,9 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 		}
 
 
-		public ApplicationModel FindApplicationByName(string applicationName)
+		public List<ApplicationModel> FindApplicationsByName(string applicationName)
 		{
-			var application = this.FindApplicationByNameFromDb(applicationName);
-			return application;
+			return this.FindApplicationsByNameFromDb(applicationName);
 		}
 	}
 }

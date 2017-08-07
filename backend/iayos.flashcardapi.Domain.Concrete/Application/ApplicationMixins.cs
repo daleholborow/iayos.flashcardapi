@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack.OrmLite;
@@ -7,12 +8,12 @@ namespace iayos.flashcardapi.Domain.Concrete.Application
 {
 	public static class ApplicationMixins
 	{
-		public static ApplicationModel FindApplicationByNameFromDb(
+		public static List<ApplicationModel> FindApplicationsByNameFromDb(
 			this IFindApplicationByNameFromMsSqlDb implementation, string name)
 		{
-			var row = implementation.Db.Single<ApplicationTable>(x => x.Name == name);
-			var model = row.ToApplicationModel();
-			return model;
+			var rows = implementation.Db.Select<ApplicationTable>(x => x.Name == name);
+			var models = rows.ConvertAll(x => x.ToApplicationModel());
+			return models;
 		}
 
 

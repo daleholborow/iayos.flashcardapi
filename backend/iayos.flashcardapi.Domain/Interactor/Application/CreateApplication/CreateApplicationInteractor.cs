@@ -47,8 +47,8 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			applicationName = applicationName.Trim();
 
 			// see if name is unique and throw if not
-			var application = _gateway.FindApplicationByName(applicationName);
-			if (application != null) throw new Exception("Not allowed duplicate application names");
+			var applications = _gateway.FindApplicationsByName(applicationName);
+			if (applications != null) throw new Exception("Not allowed duplicate application names");
 			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}
 	}
