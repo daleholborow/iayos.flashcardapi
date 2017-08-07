@@ -22,6 +22,8 @@ namespace iayos.flashcardapi.Api.Test
 	{
 		public static void InitializeOurContainerForGlory(Container container)
 		{
+			container.Register<ISequentialGuidGenerator>(c => new MySqlDbSequentialGuidGenerator());
+
 			container.RegisterAutoWired<GetApplicationInteractor>();
 			container.RegisterAutoWiredAs<GetApplicationGateway, IGetApplicationGateway>();
 			container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();

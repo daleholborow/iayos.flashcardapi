@@ -26,7 +26,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			var application = input.ToApplicationModel();
 
 			// pass domainmodel to gateway for persistence
-			var applicationId = _gateway.Insert(application);
+			application.ApplicationId = _gateway.Insert(application);
 
 			// return the bare minimum of data!
 			return new CreateApplicationOutput

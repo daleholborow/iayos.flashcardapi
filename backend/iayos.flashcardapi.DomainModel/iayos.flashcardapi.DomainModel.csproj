@@ -46,6 +46,7 @@
     <Compile Include="Models\CardFaceModel.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\CardScoreModel.cs" />
+    <Compile Include="Models\DeckCategoryModel.cs" />
     <Compile Include="Models\DeckModel.cs" />
     <Compile Include="Flags\LanguageFlag.cs" />
     <Compile Include="Flags\FrequencyModeFlag.cs" />

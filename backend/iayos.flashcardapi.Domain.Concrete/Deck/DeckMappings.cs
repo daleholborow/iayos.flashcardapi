@@ -1,4 +1,5 @@
-﻿using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
+﻿using System;
+using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack;
 
@@ -13,9 +14,11 @@ namespace iayos.flashcardapi.Domain.Concrete.Deck
 			return model;
 		}
 
-		public static DeckTable ToDeckTable(this DeckModel model)
+		public static DeckTable ToDeckTable(this DeckModel model, Guid? applicationId = null, Guid? deckCategoryId = null)
 		{
 			var row = model.ConvertTo<DeckTable>();
+			row.ApplicationId = model.Application?.ApplicationId ?? applicationId.GetValueOrDefault();
+			row.DeckCategoryId = model.DeckCategory?.DeckCategoryId ?? deckCategoryId.GetValueOrDefault();
 			return row;
 		}
 	}

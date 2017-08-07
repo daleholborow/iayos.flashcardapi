@@ -47,6 +47,7 @@
     <Compile Include="Tables\ApplicationTable.cs" />
     <Compile Include="Tables\AuditableTable.cs" />
     <Compile Include="Tables\CardTable.cs" />
+    <Compile Include="Tables\DeckCategoryTable.cs" />
     <Compile Include="Tables\DeckTable.cs" />
     <Compile Include="Tables\ScoreTable.cs" />
     <Compile Include="Tables\UserTable.cs" />

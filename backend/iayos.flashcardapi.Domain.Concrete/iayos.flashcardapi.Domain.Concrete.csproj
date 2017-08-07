@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="iayos.sequentialguid, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iayos.sequentialguid.0.1.0\lib\net461\iayos.sequentialguid.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Common, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Common.4.5.12\lib\net45\ServiceStack.Common.dll</HintPath>
     </Reference>
@@ -72,6 +75,7 @@
     <Compile Include="IHasDbConnection.cs" />
     <Compile Include="Application\ApplicationMixins.cs" />
     <Compile Include="FlashCardValidator.cs" />
+    <Compile Include="IHasSequentialGuidGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
