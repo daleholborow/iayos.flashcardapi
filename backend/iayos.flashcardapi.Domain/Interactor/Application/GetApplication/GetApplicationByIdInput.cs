@@ -2,7 +2,7 @@
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
 {
-	public class GetApplicationInput
+	public class GetApplicationByIdInput
 	{
 		public Guid ApplicationId { get; set; }
 	}

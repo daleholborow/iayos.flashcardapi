@@ -1,8 +1,6 @@
 ﻿using System;
 using iayos.flashcardapi.Api.Infrastructure;
-using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
-using iayos.flashcardapi.DomainModel.Models;
-using iayos.flashcardapi.ServiceModel.Deck.Messages;
+using iayos.flashcardapi.ServiceModel.Application;
 
 namespace iayos.flashcardapi.Api.Endpoints
 {

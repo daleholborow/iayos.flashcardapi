@@ -2,7 +2,7 @@
 using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
 using iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById;
 using iayos.flashcardapi.DomainModel.Models;
-using iayos.flashcardapi.ServiceModel.Deck.Messages;
+using iayos.flashcardapi.ServiceModel.Deck;
 
 namespace iayos.flashcardapi.Api.Endpoints
 {

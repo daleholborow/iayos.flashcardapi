@@ -3,7 +3,7 @@ using iayos.flashcardapi.ServiceModel.Infrastructure.Message;
 
 namespace iayos.flashcardapi.ServiceModel.Application.Messages
 {
-	public class GetApplicationRequestResponse : UnitPayloadResponse<ApplicationDto>
+	public class GetApplicationByIdRequestResponse : UnitPayloadResponse<ApplicationDto>
 	{
 	}
 }

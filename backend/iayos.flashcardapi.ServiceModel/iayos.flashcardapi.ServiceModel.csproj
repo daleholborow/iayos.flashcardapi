@@ -40,24 +40,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Messages\CreateApplicationRequestResponse.cs" />
-    <Compile Include="Application\Messages\GetApplicationRequest.cs" />
-    <Compile Include="Application\Messages\GetApplicationRequestResponse.cs" />
-    <Compile Include="Application\Messages\CreateApplicationRequest.cs" />
-    <Compile Include="Deck\Messages\CreateDeckRequest.cs" />
-    <Compile Include="Deck\Messages\CreateDeckRequestResponse.cs" />
-    <Compile Include="Deck\Messages\GetDeckRequest.cs" />
-    <Compile Include="Deck\Messages\GetDeckRequestResponse.cs" />
-    <Compile Include="Deck\Messages\ListDeckCategoriesByApplicationRequest.cs" />
-    <Compile Include="Deck\Messages\ListDeckCategoriesByApplicationRequestResponse.cs" />
+    <Compile Include="Application\CreateApplicationRequestResponse.cs" />
+    <Compile Include="Application\GetApplicationByIdRequest.cs" />
+    <Compile Include="Application\GetApplicationByIdRequestResponse.cs" />
+    <Compile Include="Application\CreateApplicationRequest.cs" />
+    <Compile Include="Application\ListDeckCategoriesByApplicationRequestResponse.cs" />
+    <Compile Include="Deck\CreateDeckRequest.cs" />
+    <Compile Include="Deck\CreateDeckRequestResponse.cs" />
+    <Compile Include="Deck\GetDeckRequest.cs" />
+    <Compile Include="Deck\GetDeckRequestResponse.cs" />
+    <Compile Include="Application\ListDeckCategoriesByApplicationRequest.cs" />
     <Compile Include="Infrastructure\Message\ListPayloadResponse.cs" />
     <Compile Include="Infrastructure\Message\Response.cs" />
     <Compile Include="Infrastructure\Message\UnitPayloadResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\Dto\" />
-    <Folder Include="User\Dto\" />
-    <Folder Include="User\Message\" />
+    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">

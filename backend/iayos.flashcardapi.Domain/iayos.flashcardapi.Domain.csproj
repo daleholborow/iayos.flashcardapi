@@ -52,10 +52,10 @@
     <Compile Include="Interactor\Application\FindApplication\FindApplicationOutput.cs" />
     <Compile Include="Interactor\Application\FindApplication\IFindApplicationGateway.cs" />
     <Compile Include="Interactor\Application\FindApplication\IFindApplicationValidator.cs" />
-    <Compile Include="Interactor\Application\GetApplication\GetApplicationInput.cs" />
-    <Compile Include="Interactor\Application\GetApplication\GetApplicationInteractor.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdInput.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdInteractor.cs" />
     <Compile Include="Interactor\Application\GetApplication\GetApplicationMappings.cs" />
-    <Compile Include="Interactor\Application\GetApplication\GetApplicationOutput.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdOutput.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationByIdGateway.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationValidator.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\CreateDeckMappings.cs" />

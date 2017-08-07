@@ -4,19 +4,19 @@ using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
 {
-	public class GetApplicationInteractor : IInteractor<GetApplicationInput, GetApplicationOutput>
+	public class GetApplicationByIdInteractor : IInteractor<GetApplicationByIdInput, GetApplicationByIdOutput>
 	{
 
 		private readonly IGetApplicationByIdGateway _gateway;
 		//private readonly IGetApplicationValidator _validator;
 
-		public GetApplicationInteractor(IGetApplicationByIdGateway gateway/*, IGetApplicationValidator validator*/)
+		public GetApplicationByIdInteractor(IGetApplicationByIdGateway gateway/*, IGetApplicationValidator validator*/)
 		{
 			_gateway = gateway;
 			//_validator = validator;
 		}
 
-		public GetApplicationOutput Handle(UserModel agent, GetApplicationInput input)
+		public GetApplicationByIdOutput Handle(UserModel agent, GetApplicationByIdInput input)
 		{
 			// Can this agent perform this action?
 			//_validator.ThrowOnInsufficientPermissions(agent);
@@ -25,7 +25,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
 			var model = _gateway.GetApplicationById(input.ApplicationId);
 
 			// return the bare minimum of data!
-			var output = new GetApplicationOutput
+			var output = new GetApplicationByIdOutput
 			{
 				Application = model.ToApplicationDto()
 			};

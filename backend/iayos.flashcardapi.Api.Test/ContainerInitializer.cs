@@ -23,7 +23,7 @@ namespace iayos.flashcardapi.Api.Test
 		{
 			container.Register<ISequentialGuidGenerator>(c => new MySqlDbSequentialGuidGenerator());
 
-			container.RegisterAutoWired<GetApplicationInteractor>();
+			container.RegisterAutoWired<GetApplicationByIdInteractor>();
 			container.RegisterAutoWiredAs<GetApplicationByIdGateway, IGetApplicationByIdGateway>();
 			//container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();
 

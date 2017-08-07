@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
+using iayos.flashcardapi.ServiceModel.Application;
 using iayos.flashcardapi.ServiceModel.Application.Messages;
 using iayos.sequentialguid;
 using Ploeh.AutoFixture;
@@ -95,7 +96,7 @@ namespace iayos.flashcardapi.Api.Test
 		public void GetApplicationByApplicationId()
 		{
 			var client = GetClient();
-			var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			var all = client.Get(new GetApplicationByIdRequest { ApplicationId = Guid.NewGuid() });
 			Assert.True(all.Result.Id == Guid.NewGuid());
 		}
 
@@ -113,7 +114,7 @@ namespace iayos.flashcardapi.Api.Test
 
 
 			//var client = GetClient();
-			//var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			//var all = client.Get(new GetApplicationByIdRequest { ApplicationId = Guid.NewGuid() });
 			//Assert.True(all.Result.Id == Guid.NewGuid());
 		}
 

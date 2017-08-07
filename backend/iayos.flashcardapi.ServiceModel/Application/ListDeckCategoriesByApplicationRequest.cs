@@ -1,6 +1,6 @@
 using ServiceStack;
 
-namespace iayos.flashcardapi.ServiceModel.Deck.Messages
+namespace iayos.flashcardapi.ServiceModel.Application
 {
 	[Route("/application/{applicationId}/deckCategories")]
 	public class ListDeckCategoriesByApplicationRequest : IReturn<ListDeckCategoriesByApplicationRequestResponse>

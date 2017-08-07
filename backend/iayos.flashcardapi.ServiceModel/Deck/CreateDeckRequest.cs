@@ -1,7 +1,7 @@
 ﻿using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
 using ServiceStack;
 
-namespace iayos.flashcardapi.ServiceModel.Deck.Messages
+namespace iayos.flashcardapi.ServiceModel.Deck
 {
 	[Route("/decks", HttpMethods.Post)]
 	public class CreateDeckRequest : CreateDeckInput, IReturn<CreateDeckRequestResponse>
