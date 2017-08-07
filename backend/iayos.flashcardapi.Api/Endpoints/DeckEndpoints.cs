@@ -1,12 +1,12 @@
 ﻿using iayos.flashcardapi.Api.Infrastructure;
 using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
-using iayos.flashcardapi.Domain.Interactor.Deck.GetDeck;
+using iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById;
 using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Deck.Messages;
 
-namespace iayos.flashcardapi.Api.Presenters
+namespace iayos.flashcardapi.Api.Endpoints
 {
-	public class DeckPresenter : FlashCardApiPresenter
+	public class DeckEndpoints : FlashCardApiPresenter
 	{
 
 		public CreateDeckRequestResponse Post(CreateDeckRequest request)
@@ -17,8 +17,8 @@ namespace iayos.flashcardapi.Api.Presenters
 			var createDeckInput = (CreateDeckInput)request;
 			var createDeckOutput = createDeckInteractor.Handle(agent, createDeckInput);
 
-			var getDeckInteractor = TryResolve<GetDeckInteractor>();
-			var getDeckInput = new GetDeckInput { DeckId = createDeckOutput.DeckId };
+			var getDeckInteractor = TryResolve<GetDeckByIdInteractor>();
+			var getDeckInput = new GetDeckByIdInput { DeckId = createDeckOutput.DeckId };
 			var getDeckOutput = getDeckInteractor.Handle(agent, getDeckInput);
 
 			var response = new CreateDeckRequestResponse { Result = getDeckOutput.Deck };
@@ -30,8 +30,8 @@ namespace iayos.flashcardapi.Api.Presenters
 		{
 			var agent = new UserModel();
 
-			var getDeckInteractor = TryResolve<GetDeckInteractor>();
-			var getDeckInput = new GetDeckInput { DeckId = request.DeckId };
+			var getDeckInteractor = TryResolve<GetDeckByIdInteractor>();
+			var getDeckInput = new GetDeckByIdInput { DeckId = request.DeckId };
 			var getDeckOutput = getDeckInteractor.Handle(agent, getDeckInput);
 
 			var response = new GetDeckRequestResponse { Result = getDeckOutput.Deck };

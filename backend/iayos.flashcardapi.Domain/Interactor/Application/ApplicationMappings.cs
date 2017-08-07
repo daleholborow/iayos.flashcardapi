@@ -3,7 +3,7 @@ using ServiceStack;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application
 {
-	public static class CreateApplicationMappings
+	public static class ApplicationMappings
 	{
 		public static ApplicationModel ToApplicationModel(this CreateApplicationInput input)
 		{

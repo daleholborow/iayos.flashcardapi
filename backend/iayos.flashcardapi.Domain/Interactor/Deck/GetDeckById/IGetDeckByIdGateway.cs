@@ -1,9 +1,9 @@
 ﻿using System;
 using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeck
+namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById
 {
-	public interface IGetDeckGateway
+	public interface IGetDeckByIdGateway
 	{
 		DeckModel GetDeckModelById(Guid deckId);
 	}

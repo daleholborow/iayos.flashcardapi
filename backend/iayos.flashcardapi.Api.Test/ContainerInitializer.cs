@@ -3,13 +3,12 @@ using Funq;
 using iayos.flashcardapi.Domain.Concrete.Application.CreateApplication;
 using iayos.flashcardapi.Domain.Concrete.Application.GetApplication;
 using iayos.flashcardapi.Domain.Concrete.Deck.CreateDeck;
-using iayos.flashcardapi.Domain.Concrete.Deck.GetDeck;
+using iayos.flashcardapi.Domain.Concrete.Deck.GetDeckById;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.Domain.Interactor.Application.Get;
-using iayos.flashcardapi.Domain.Interactor.Deck.Create;
+using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck;
-using iayos.flashcardapi.Domain.Interactor.Deck.GetDeck;
+using iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById;
 using iayos.sequentialguid;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
@@ -25,19 +24,19 @@ namespace iayos.flashcardapi.Api.Test
 			container.Register<ISequentialGuidGenerator>(c => new MySqlDbSequentialGuidGenerator());
 
 			container.RegisterAutoWired<GetApplicationInteractor>();
-			container.RegisterAutoWiredAs<GetApplicationGateway, IGetApplicationGateway>();
-			container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();
+			container.RegisterAutoWiredAs<GetApplicationByIdGateway, IGetApplicationByIdGateway>();
+			//container.RegisterAutoWiredAs<GetApplicationValidator, IGetApplicationValidator>();
 
 			container.RegisterAutoWired<CreateApplicationInteractor>();
 			container.RegisterAutoWiredAs<CreateApplicationGateway, ICreateApplicationGateway>();
 
-			container.RegisterAutoWired<GetDeckInteractor>();
-			container.RegisterAutoWiredAs<GetDeckGateway, IGetDeckGateway>();
-			container.RegisterAutoWiredAs<GetDeckValidator, IGetDeckValidator>();
+			container.RegisterAutoWired<GetDeckByIdInteractor>();
+			container.RegisterAutoWiredAs<GetDeckByIdGateway, IGetDeckByIdGateway>();
+			//container.RegisterAutoWiredAs<GetDeckValidator, IGetDeckValidator>();
 
 			container.RegisterAutoWired<CreateDeckInteractor>();
 			container.RegisterAutoWiredAs<CreateDeckGateway, ICreateDeckGateway>();
-			container.RegisterAutoWiredAs<CreateDeckValidator, ICreateDeckValidator>();
+			//container.RegisterAutoWiredAs<CreateDeckValidator, ICreateDeckValidator>();
 
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());

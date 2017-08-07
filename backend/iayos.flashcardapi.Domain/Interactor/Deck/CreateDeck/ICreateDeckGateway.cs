@@ -6,5 +6,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 	public interface ICreateDeckGateway
 	{
 		Guid Insert(DeckModel deck);
+
+		ApplicationModel GetApplicationById(Guid applicationId);
 	}
 }

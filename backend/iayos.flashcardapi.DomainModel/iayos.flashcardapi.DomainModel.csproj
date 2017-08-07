@@ -43,7 +43,6 @@
     <Compile Include="Infrastructure\IModelHasGuid.cs" />
     <Compile Include="Infrastructure\IModelHasId.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
-    <Compile Include="Models\CardFaceModel.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\CardScoreModel.cs" />
     <Compile Include="Models\DeckCategoryModel.cs" />

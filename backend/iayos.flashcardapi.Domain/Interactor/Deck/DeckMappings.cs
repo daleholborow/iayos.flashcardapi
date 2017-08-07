@@ -2,9 +2,9 @@
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeck
+namespace iayos.flashcardapi.Domain.Interactor.Deck
 {
-	public static class GetDeckMappings
+	public static class DeckMappings
 	{
 
 		public static DeckDto ToDeckDto(this DeckModel model)
