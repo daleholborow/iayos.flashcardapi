@@ -1,10 +1,14 @@
+using System;
 using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Application
 {
-	[Route("/application/{applicationId}/deckCategories")]
+	[Route("/application/{applicationId}/deckCategories", HttpMethods.Get)]
 	public class ListDeckCategoriesByApplicationRequest : IReturn<ListDeckCategoriesByApplicationRequestResponse>
 	{
+
+		public Guid ApplicationId { get; set; }
+
 		/// <summary>
 		/// Should the deck categories also contain their nested decks details
 		/// </summary>

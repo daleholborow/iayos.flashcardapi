@@ -9,7 +9,7 @@ namespace iayos.flashcardapi.DomainModel.Models
 
 		public string Name { get; set; }
 
-		public ICollection<DeckModel> Decks { get; set; } = new List<DeckModel>();
+		public List<DeckModel> Decks { get; set; } = new List<DeckModel>();
 
 		public Guid DeckCategoryId { get; set; }
 	}

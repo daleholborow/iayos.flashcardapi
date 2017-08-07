@@ -1,6 +1,8 @@
-﻿using System;
-using iayos.flashcardapi.Api.Infrastructure;
+﻿using iayos.flashcardapi.Api.Infrastructure;
+using iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesByApplication;
+using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Application;
+using ServiceStack;
 
 namespace iayos.flashcardapi.Api.Endpoints
 {
@@ -9,37 +11,15 @@ namespace iayos.flashcardapi.Api.Endpoints
 
 		public ListDeckCategoriesByApplicationRequestResponse Get(ListDeckCategoriesByApplicationRequest request)
 		{
-			throw new NotImplementedException();
+			var agent = new UserModel();
+
+			var deckCategoriesByApplicationInteractor = TryResolve<ListDeckCategoriesByApplicationInteractor>();
+			var deckCategoriesByApplicationInput = request.ConvertTo<ListDeckCategoriesByApplicationInput>();
+			var deckCategoriesByApplicationOutput = deckCategoriesByApplicationInteractor.Handle(agent, deckCategoriesByApplicationInput);
+
+			var response = new ListDeckCategoriesByApplicationRequestResponse { Results = deckCategoriesByApplicationOutput.DeckCategoryDtos };
+			return response;
 		}
-
-		//public CreateDeckRequestResponse Post(CreateDeckRequest request)
-		//{
-		//	var agent = new UserModel();
-
-		//	var createDeckInteractor = TryResolve<CreateDeckInteractor>();
-		//	var createDeckInput = (CreateDeckInput)request;
-		//	var createDeckOutput = createDeckInteractor.Handle(agent, createDeckInput);
-
-		//	var getDeckInteractor = TryResolve<GetDeckByIdInteractor>();
-		//	var getDeckInput = new GetDeckInputById { DeckId = createDeckOutput.DeckId };
-		//	var getDeckOutput = getDeckInteractor.Handle(agent, getDeckInput);
-
-		//	var response = new CreateDeckRequestResponse { Result = getDeckOutput.Deck };
-		//	return response;
-		//}
-
-
-		//public GetDeckRequestResponse Get(GetDeckRequest request)
-		//{
-		//	var agent = new UserModel();
-
-		//	var getDeckInteractor = TryResolve<GetDeckByIdInteractor>();
-		//	var getDeckInput = new GetDeckInputById { DeckId = request.DeckId };
-		//	var getDeckOutput = getDeckInteractor.Handle(agent, getDeckInput);
-
-		//	var response = new GetDeckRequestResponse { Result = getDeckOutput.Deck };
-		//	return response;
-		//}
 
 	}
 

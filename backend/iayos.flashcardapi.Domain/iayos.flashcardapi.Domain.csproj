@@ -58,6 +58,11 @@
     <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdOutput.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationByIdGateway.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationValidator.cs" />
+    <Compile Include="Interactor\DeckCategory\DeckCategoryMappings.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\IListDeckCategoriesByApplicationGateway.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationInput.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationInteractor.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationOutput.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\CreateDeckMappings.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\CreateDeckInput.cs" />
     <Compile Include="Interactor\Deck\CreateDeck\CreateDeckInteractor.cs" />
