@@ -6,7 +6,7 @@ using ServiceStack.OrmLite;
 
 namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 {
-	public class CreateApplicationGateway : FlashCardGateway, ICreateApplicationGateway
+	public class CreateApplicationGateway : FlashCardGateway, ICreateApplicationGateway, IFindApplicationByNameFromMsSqlDb
 	{
 		public CreateApplicationGateway(IDbConnection dbConnection) : base(dbConnection)
 		{
@@ -18,6 +18,13 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 			var table = application.ToApplicationTable();
 			Db.Insert(table);
 			return table.ApplicationId;
+		}
+
+
+		public ApplicationModel FindApplicationByName(string applicationName)
+		{
+			var application = this.FindApplicationByNameFromDb(applicationName);
+			return application;
 		}
 	}
 }

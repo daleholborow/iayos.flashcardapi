@@ -28,7 +28,6 @@ namespace iayos.flashcardapi.Api.Test
 
 			container.RegisterAutoWired<CreateApplicationInteractor>();
 			container.RegisterAutoWiredAs<CreateApplicationGateway, ICreateApplicationGateway>();
-			container.RegisterAutoWiredAs<CreateApplicationValidator, ICreateApplicationValidator>();
 
 			container.RegisterAutoWired<GetDeckInteractor>();
 			container.RegisterAutoWiredAs<GetDeckGateway, IGetDeckGateway>();

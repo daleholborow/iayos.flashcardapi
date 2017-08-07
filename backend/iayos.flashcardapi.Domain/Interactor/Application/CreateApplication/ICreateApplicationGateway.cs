@@ -6,5 +6,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 	public interface ICreateApplicationGateway
 	{
 		Guid Insert(ApplicationModel application);
+
+		ApplicationModel FindApplicationByName(string applicationName);
 	}
 }

@@ -1,12 +1,12 @@
-﻿using iayos.flashcardapi.DomainModel.Models;
+﻿//using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Interactor.Application
-{
-	public interface ICreateApplicationValidator
-	{
-		void ThrowOnInsufficientPermissions(UserModel agent);
+//namespace iayos.flashcardapi.Domain.Interactor.Application
+//{
+//	public interface ICreateApplicationValidator
+//	{
+//		void ThrowOnInsufficientPermissions(UserModel agent);
 
 
-		void ThrowOnInvalidApplicationName(string applicationName);
-	}
-}
+//		void ThrowOnInvalidApplicationName(string applicationName);
+//	}
+//}

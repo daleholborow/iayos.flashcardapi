@@ -1,4 +1,5 @@
-﻿using iayos.flashcardapi.Domain.Infrastructure;
+﻿using System;
+using iayos.flashcardapi.Domain.Infrastructure;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application
@@ -6,22 +7,20 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 	public class CreateApplicationInteractor : IInteractor<CreateApplicationInput, CreateApplicationOutput>
 	{
 		private readonly ICreateApplicationGateway _gateway;
-		private readonly ICreateApplicationValidator _validator;
 
-		public CreateApplicationInteractor(ICreateApplicationGateway gateway, ICreateApplicationValidator validator)
+		public CreateApplicationInteractor(ICreateApplicationGateway gateway)
 		{
 			_gateway = gateway;
-			_validator = validator;
 		}
 
 
 		public CreateApplicationOutput Handle(UserModel agent, CreateApplicationInput input)
 		{
 			// Can this agent perform this action?
-			_validator.ThrowOnInsufficientPermissions(agent);
+			ThrowOnInsufficientPermissions(agent);
 
 			// validate that application doesnt exist by name already
-			_validator.ThrowOnInvalidApplicationName(input.Name);
+			ThrowOnInvalidApplicationName(input.Name);
 
 			// map input to domainmodel
 			var application = input.ToApplicationModel();
@@ -34,6 +33,23 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 			{
 				ApplicationId = application.ApplicationId
 			};
+		}
+
+
+		private void ThrowOnInsufficientPermissions(UserModel agent)
+		{
+			// nothing for now
+		}
+
+
+		private void ThrowOnInvalidApplicationName(string applicationName)
+		{
+			applicationName = applicationName.Trim();
+
+			// see if name is unique and throw if not
+			var application = _gateway.FindApplicationByName(applicationName);
+			if (application != null) throw new Exception("Not allowed duplicate application names");
+			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}
 	}
 }
