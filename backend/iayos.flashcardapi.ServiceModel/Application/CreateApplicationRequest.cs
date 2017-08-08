@@ -1,11 +1,10 @@
-﻿using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.ServiceModel.Application.Messages;
-using ServiceStack;
+﻿using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Application
 {
 	[Route("/applications", HttpMethods.Post)]
-	public class CreateApplicationRequest : CreateApplicationInput, IReturn<CreateApplicationRequestResponse>
+	public class CreateApplicationRequest : IReturn<CreateApplicationRequestResponse>
 	{
+		public string Name { get; set; }
 	}
 }

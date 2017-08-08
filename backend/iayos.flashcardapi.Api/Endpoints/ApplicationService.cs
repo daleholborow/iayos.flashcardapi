@@ -3,11 +3,11 @@ using iayos.flashcardapi.Domain.Interactor.Application;
 using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Application;
-using iayos.flashcardapi.ServiceModel.Application.Messages;
+using ServiceStack;
 
 namespace iayos.flashcardapi.Api.Endpoints
 {
-	public class ApplicationEndpoints : FlashCardApiPresenter
+	public class ApplicationService : FlashCardApiService
 	{
 		
 		public CreateApplicationRequestResponse Post(CreateApplicationRequest request)
@@ -15,14 +15,10 @@ namespace iayos.flashcardapi.Api.Endpoints
 			var agent = new UserModel();
 
 			var createApplicationInteractor = TryResolve<CreateApplicationInteractor>();
-			var createApplicationInput = (CreateApplicationInput) request;
+			var createApplicationInput = request.ConvertTo<CreateApplicationInput>();
 			var createApplicationOutput = createApplicationInteractor.Handle(agent, createApplicationInput);
 
-			var getApplicationInteractor = TryResolve<GetApplicationByIdInteractor>();
-			var getApplicationByIdInput = new GetApplicationByIdInput {ApplicationId = createApplicationOutput.ApplicationId};
-			var getApplicationByIdOutput = getApplicationInteractor.Handle(agent, getApplicationByIdInput);
-
-			var response = new CreateApplicationRequestResponse {Result = getApplicationByIdOutput.Application};
+			var response = new CreateApplicationRequestResponse {Result = createApplicationOutput.ApplicationId };
 			return response;
 		}
 
@@ -39,7 +35,6 @@ namespace iayos.flashcardapi.Api.Endpoints
 			return response;
 		}
 
-
-		
 	}
+
 }

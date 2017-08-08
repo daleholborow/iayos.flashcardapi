@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using iayos.flashcardapi.ServiceModel.Application;
-using iayos.flashcardapi.ServiceModel.Application.Messages;
 using iayos.sequentialguid;
 using Ploeh.AutoFixture;
 using ServiceStack;

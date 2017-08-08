@@ -1,11 +1,11 @@
-using iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById;
+using System;
 using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.Deck
 {
 	[Route("/deck/{deckId}", HttpMethods.Get)]
-	public class GetDeckRequest : GetDeckByIdInput, IReturn<GetDeckRequestResponse>
+	public class GetDeckRequest : IReturn<GetDeckRequestResponse>
 	{
-		
+		public Guid DeckId { get; set; }
 	}
 }

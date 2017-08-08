@@ -12,7 +12,7 @@ namespace iayos.flashcardapi.Api.Test
 	{
 		private InMemoryAuthRepository _userRep;
 
-		public TestingAppHost() : base("REST Example", typeof(ApplicationEndpoints).Assembly)
+		public TestingAppHost() : base("REST Example", typeof(ApplicationService).Assembly)
 		{
 		}
 

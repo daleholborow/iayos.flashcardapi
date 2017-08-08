@@ -1,12 +1,12 @@
 ﻿using iayos.flashcardapi.Api.Infrastructure;
 using iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesByApplication;
 using iayos.flashcardapi.DomainModel.Models;
-using iayos.flashcardapi.ServiceModel.Application;
+using iayos.flashcardapi.ServiceModel.DeckCategory;
 using ServiceStack;
 
 namespace iayos.flashcardapi.Api.Endpoints
 {
-	public class DeckCategoryEndpoints : FlashCardApiPresenter
+	public class DeckCategoryService : FlashCardApiService
 	{
 
 		public ListDeckCategoriesByApplicationRequestResponse Get(ListDeckCategoriesByApplicationRequest request)

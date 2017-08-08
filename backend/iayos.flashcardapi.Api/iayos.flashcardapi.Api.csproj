@@ -104,15 +104,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Endpoints\DeckCategoryEndpoints.cs" />
+    <Compile Include="Endpoints\DeckCategoryService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\FlashCardApiAppHostBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Endpoints\ApplicationEndpoints.cs" />
-    <Compile Include="Endpoints\DeckEndpoints.cs" />
-    <Compile Include="Infrastructure\FlashCardApiPresenter.cs" />
+    <Compile Include="Endpoints\ApplicationService.cs" />
+    <Compile Include="Endpoints\DeckService.cs" />
+    <Compile Include="Infrastructure\FlashCardApiService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">

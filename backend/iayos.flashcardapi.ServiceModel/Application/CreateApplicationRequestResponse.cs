@@ -1,9 +1,9 @@
-using iayos.flashcardapi.Domain.Dto.Application;
+using System;
 using iayos.flashcardapi.ServiceModel.Infrastructure.Message;
 
 namespace iayos.flashcardapi.ServiceModel.Application
 {
-	public class CreateApplicationRequestResponse : UnitPayloadResponse<ApplicationDto>
+	public class CreateApplicationRequestResponse : UnitPayloadResponse<Guid>
 	{
 	}
 }
