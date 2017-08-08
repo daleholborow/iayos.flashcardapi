@@ -1,8 +1,12 @@
+using System;
+
 namespace iayos.flashcardapi.DomainModel.Models {
 
 	public class CardModel : Infrastructure.DomainModel
 	{
 		
+		public Guid CardId { get; set; }
+
 		/// <summary>
 		/// The order that card appears in the Deck
 		/// </summary>

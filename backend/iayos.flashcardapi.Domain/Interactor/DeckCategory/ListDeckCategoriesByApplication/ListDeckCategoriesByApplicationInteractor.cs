@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using iayos.flashcardapi.Domain.Infrastructure;
-using iayos.flashcardapi.Domain.Interactor.Application;
+﻿using iayos.flashcardapi.Domain.Infrastructure;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesByApplication
@@ -19,27 +17,9 @@ namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesBy
 
 		public ListDeckCategoriesByApplicationOutput Handle(UserModel agent, ListDeckCategoriesByApplicationInput input)
 		{
-			//// Can this agent perform this action?
-			//ThrowOnInsufficientPermissions(agent);
+			var deckCategories = _gateway.ListDeckCategoriesByApplicationId(input.ApplicationId);
 
-			//// validate that application doesnt exist by name already
-			//ThrowOnInvalidApplicationName(input.Name);
-
-			//// map input to domainmodel
-			//var application = input.ToApplicationModel();
-
-			//// pass domainmodel to gateway for persistence
-			//application.ApplicationId = _gateway.Insert(application);
-
-			//// return the bare minimum of data!
-			//return new CreateApplicationOutput
-			//{
-			//	ApplicationId = application.ApplicationId
-			//};
-
-			List<DeckCategoryModel> deckCategories = _gateway.ListDeckCategoriesByApplicationId(input.ApplicationId);
-
-			var deckCategoryDtos = deckCategories.ConvertAll(x => ApplicationMappings.ToDeckCategoryDto(x));
+			var deckCategoryDtos = deckCategories.ConvertAll(x => x.ToDeckCategoryDto());
 
 			return new ListDeckCategoriesByApplicationOutput
 			{

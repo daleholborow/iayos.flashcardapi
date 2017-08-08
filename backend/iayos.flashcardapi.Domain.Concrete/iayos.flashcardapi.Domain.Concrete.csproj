@@ -60,6 +60,11 @@
     <Compile Include="Application\CreateApplication\CreateApplicationValidator.cs" />
     <Compile Include="Application\FindApplication\FindApplicationGateway.cs" />
     <Compile Include="Application\IGetApplicationByIdFromMsSqlDb.cs" />
+    <Compile Include="Card\CreateCard\CreateCardGateway.cs" />
+    <Compile Include="Card\CardMappings.cs" />
+    <Compile Include="Card\CardMixins.cs" />
+    <Compile Include="Card\GetCardById\GetCardByIdGateway.cs" />
+    <Compile Include="Card\IFindCardByIdFromMsSqlDb.cs" />
     <Compile Include="Deck\DeckMixins.cs" />
     <Compile Include="Deck\DeckMappings.cs" />
     <Compile Include="Deck\CreateDeck\CreateDeckGateway.cs" />

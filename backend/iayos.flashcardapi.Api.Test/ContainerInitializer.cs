@@ -36,7 +36,7 @@ namespace iayos.flashcardapi.Api.Test
 
 			container.RegisterAutoWired<CreateDeckInteractor>();
 			container.RegisterAutoWiredAs<CreateDeckGateway, ICreateDeckGateway>();
-			//container.RegisterAutoWiredAs<CreateDeckValidator, ICreateDeckValidator>();
+			//container.RegisterAutoWiredAs<CreateDeckValidator, ICreateCardValidator>();
 
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());

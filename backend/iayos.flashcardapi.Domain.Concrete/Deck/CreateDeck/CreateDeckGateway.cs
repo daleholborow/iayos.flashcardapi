@@ -25,9 +25,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Deck.CreateDeck
 
 		public ApplicationModel GetApplicationById(Guid applicationId)
 		{
-			//var application = IGetApplicationByIdGateway.GetApplicationByIdFromDb(this, applicationId);
-			//return application;
-			var application = this.GetApplicationById(applicationId);
+			var application = this.GetApplicationByIdFromDb(applicationId);
 			if (application == null) throw new Exception("NotFound");
 			return application;
 

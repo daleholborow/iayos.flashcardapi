@@ -5,7 +5,7 @@
 
 //namespace iayos.flashcardapi.Domain.Concrete.Deck.CreateDeck
 //{
-//	public class CreateDeckValidator : FlashCardValidator, ICreateDeckValidator,
+//	public class CreateDeckValidator : FlashCardValidator, ICreateCardValidator,
 //		IFindDeckByNameFromMsSqlDb
 //	{
 //		public CreateDeckValidator(IDbConnection dbConnection) : base(dbConnection)

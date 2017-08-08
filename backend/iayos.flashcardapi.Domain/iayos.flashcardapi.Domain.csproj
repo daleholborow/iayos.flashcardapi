@@ -58,6 +58,12 @@
     <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdOutput.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationByIdGateway.cs" />
     <Compile Include="Interactor\Application\GetApplication\IGetApplicationValidator.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardInput.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardInteractor.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardMappings.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardOutput.cs" />
+    <Compile Include="Interactor\Card\CreateCard\ICreateCardGateway.cs" />
+    <Compile Include="Interactor\Card\CreateCard\ICreateCardValidator.cs" />
     <Compile Include="Interactor\DeckCategory\DeckCategoryMappings.cs" />
     <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\IListDeckCategoriesByApplicationGateway.cs" />
     <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationInput.cs" />
@@ -94,7 +100,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interactor\Card\" />
     <Folder Include="Interactor\User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
