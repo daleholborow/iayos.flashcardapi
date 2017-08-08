@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Funq;
-using iayos.flashcardapi.Api.Presenters;
+using iayos.flashcardapi.Api.Endpoints;
 using iayos.sequentialguid;
 using ServiceStack;
 using ServiceStack.Auth;
@@ -12,7 +12,7 @@ namespace iayos.flashcardapi.Api.Test
 	{
 		private InMemoryAuthRepository _userRep;
 
-		public TestingAppHost() : base("REST Example", typeof(ApplicationPresenter).Assembly)
+		public TestingAppHost() : base("REST Example", typeof(ApplicationService).Assembly)
 		{
 		}
 

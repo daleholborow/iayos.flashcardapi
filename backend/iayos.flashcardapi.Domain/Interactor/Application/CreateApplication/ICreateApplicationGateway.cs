@@ -8,6 +8,6 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 	{
 		Guid Insert(ApplicationModel application);
 
-		List<ApplicationModel> FindApplicationsByName(string applicationName);
+		List<ApplicationModel> ListApplicationsByName(string applicationName);
 	}
 }

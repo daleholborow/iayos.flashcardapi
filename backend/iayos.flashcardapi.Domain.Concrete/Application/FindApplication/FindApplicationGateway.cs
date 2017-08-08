@@ -22,7 +22,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.FindApplication
 
 		public ApplicationModel FindApplicationById(Guid applicationId)
 		{
-			var application = ApplicationMixins.FindApplicationById(this, applicationId);
+			var application = ApplicationMixins.FindApplicationByIdFromDb(this, applicationId);
 			return application;
 		}
 	}

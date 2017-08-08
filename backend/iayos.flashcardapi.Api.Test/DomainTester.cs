@@ -33,11 +33,11 @@ namespace iayos.flashcardapi.Api.Test
 		public void GetApplicationByApplicationId()
 		{
 			//var client = new JsonServiceClient(BaseUri);
-			//var all = client.Get(new GetApplicationRequest { ApplicationId = Guid.NewGuid() });
+			//var all = client.Get(new GetApplicationByIdRequest { ApplicationId = Guid.NewGuid() });
 			//Assert.True(all.Result.Id == Guid.NewGuid());
 
-			var interactor = _container.Resolve<GetApplicationInteractor>();
-			var getApplicationInput = new GetApplicationInput {ApplicationId = Guid.NewGuid()};
+			var interactor = _container.Resolve<GetApplicationByIdInteractor>();
+			var getApplicationInput = new GetApplicationByIdInput {ApplicationId = Guid.NewGuid()};
 			UserModel agent = new UserModel();
 			var output = interactor.Handle(agent, getApplicationInput);
 		}

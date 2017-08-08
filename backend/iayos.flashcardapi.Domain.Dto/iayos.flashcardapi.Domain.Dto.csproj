@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\ApplicationDto.cs" />
+    <Compile Include="Application\DeckCategoryDto.cs" />
     <Compile Include="Deck\DeckDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

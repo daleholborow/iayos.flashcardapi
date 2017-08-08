@@ -8,6 +8,9 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.CreateDeck
 		public Guid ApplicationId { get; set; }
 
 
+		public Guid DeckCategoryId { get; set; }
+
+
 		public string Name { get; set; }
 
 

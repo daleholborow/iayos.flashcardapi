@@ -24,7 +24,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Application.CreateApplication
 		}
 
 
-		public List<ApplicationModel> FindApplicationsByName(string applicationName)
+		public List<ApplicationModel> ListApplicationsByName(string applicationName)
 		{
 			return this.FindApplicationsByNameFromDb(applicationName);
 		}
