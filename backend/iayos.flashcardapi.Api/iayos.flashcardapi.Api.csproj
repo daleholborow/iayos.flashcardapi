@@ -154,4 +154,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)ConnectionStrings.Private.config" /y "$(ProjectDir)bin\$(Configuration)\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
