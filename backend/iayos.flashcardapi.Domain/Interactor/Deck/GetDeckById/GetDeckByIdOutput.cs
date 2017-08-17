@@ -1,9 +1,9 @@
-﻿using iayos.flashcardapi.Domain.Dto.Deck;
+﻿using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById
 {
 	public class GetDeckByIdOutput
 	{
-		public DeckDto Deck { get; set; }
+		public DeckModel Deck { get; set; }
 	}
 }

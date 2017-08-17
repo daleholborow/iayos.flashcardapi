@@ -5,7 +5,7 @@ using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Deck;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Api.Endpoints
+namespace iayos.flashcardapi.Api.Endpoints.Deck
 {
 	public class DeckService : FlashCardApiService
 	{
@@ -31,7 +31,7 @@ namespace iayos.flashcardapi.Api.Endpoints
 			var getDeckInput = new GetDeckByIdInput { DeckId = request.DeckId };
 			var getDeckOutput = getDeckInteractor.Handle(agent, getDeckInput);
 
-			var response = new GetDeckRequestResponse { Result = getDeckOutput.Deck };
+			var response = new GetDeckRequestResponse { Result = getDeckOutput.Deck.ToDeckDto() };
 			return response;
 		}
 

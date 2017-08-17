@@ -1,9 +1,9 @@
-﻿using iayos.flashcardapi.Domain.Dto.Application;
+﻿using iayos.flashcardapi.DomainModel.Models;
 
-namespace iayos.flashcardapi.Domain.Interactor.Application.Get
+namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
 {
 	public class GetApplicationByIdOutput
 	{
-		public ApplicationDto Application { get; set; }
+		public ApplicationModel Application { get; set; }
 	}
 }

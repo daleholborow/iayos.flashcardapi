@@ -5,7 +5,7 @@ using iayos.flashcardapi.DomainModel.Models;
 using iayos.flashcardapi.ServiceModel.Application;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Api.Endpoints
+namespace iayos.flashcardapi.Api.Endpoints.Application
 {
 	public class ApplicationService : FlashCardApiService
 	{
@@ -31,7 +31,7 @@ namespace iayos.flashcardapi.Api.Endpoints
 			var getApplicationByIdInput = new GetApplicationByIdInput {ApplicationId = request.ApplicationId};
 			var getApplicationByIdOutput = getApplicationInteractor.Handle(agent, getApplicationByIdInput);
 
-			var response = new GetApplicationByIdRequestResponse {Result = getApplicationByIdOutput.Application};
+			var response = new GetApplicationByIdRequestResponse {Result = getApplicationByIdOutput.Application.ToApplicationDto()};
 			return response;
 		}
 

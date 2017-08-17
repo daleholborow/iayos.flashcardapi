@@ -86,14 +86,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Endpoints\DeckCategoryService.cs" />
+    <Compile Include="Endpoints\Application\ApplicationMappings.cs" />
+    <Compile Include="Endpoints\DeckCategory\DeckCategoryMappings.cs" />
+    <Compile Include="Endpoints\DeckCategory\DeckCategoryService.cs" />
+    <Compile Include="Endpoints\Deck\DeckMappings.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\FlashCardApiAppHostBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Endpoints\ApplicationService.cs" />
-    <Compile Include="Endpoints\DeckService.cs" />
+    <Compile Include="Endpoints\Application\ApplicationService.cs" />
+    <Compile Include="Endpoints\Deck\DeckService.cs" />
     <Compile Include="Infrastructure\FlashCardApiService.cs" />
   </ItemGroup>
   <ItemGroup>

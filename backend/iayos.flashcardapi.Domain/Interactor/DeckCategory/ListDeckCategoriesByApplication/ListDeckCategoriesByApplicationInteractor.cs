@@ -19,11 +19,11 @@ namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesBy
 		{
 			var deckCategories = _gateway.ListDeckCategoriesByApplicationId(input.ApplicationId);
 
-			var deckCategoryDtos = deckCategories.ConvertAll(x => x.ToDeckCategoryDto());
+			//var deckCategoryDtos = deckCategories.ConvertAll(x => x.ToDeckCategoryDto());
 
 			return new ListDeckCategoriesByApplicationOutput
 			{
-				DeckCategoryDtos = deckCategoryDtos
+				DeckCategories = deckCategories
 			};
 		}
 

@@ -13,4 +13,7 @@ namespace iayos.flashcardapi.DomainModel.Models
 
 		public Guid DeckCategoryId { get; set; }
 	}
+
+
+	
 }

@@ -1,5 +1,4 @@
 ﻿using iayos.flashcardapi.Domain.Infrastructure;
-using iayos.flashcardapi.Domain.Interactor.Application.Get;
 using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
@@ -27,7 +26,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Application.GetApplication
 			// return the bare minimum of data!
 			var output = new GetApplicationByIdOutput
 			{
-				Application = model.ToApplicationDto()
+				Application = model
 			};
 			return output;
 		}
