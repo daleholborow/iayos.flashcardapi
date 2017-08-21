@@ -65,6 +65,8 @@
     <Compile Include="Card\CardMixins.cs" />
     <Compile Include="Card\GetCardById\GetCardByIdGateway.cs" />
     <Compile Include="Card\IFindCardByIdFromMsSqlDb.cs" />
+    <Compile Include="DeckCategory\ListDeckCategoriesByApplicationGateway.cs" />
+    <Compile Include="DeckCategory\DeckCategoryMappings.cs" />
     <Compile Include="Deck\DeckMixins.cs" />
     <Compile Include="Deck\DeckMappings.cs" />
     <Compile Include="Deck\CreateDeck\CreateDeckGateway.cs" />

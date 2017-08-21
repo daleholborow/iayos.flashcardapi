@@ -13,13 +13,9 @@ namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesBy
 		}
 
 
-		//public ListDeckCategoriesByApplicationOutput 
-
 		public ListDeckCategoriesByApplicationOutput Handle(UserModel agent, ListDeckCategoriesByApplicationInput input)
 		{
-			var deckCategories = _gateway.ListDeckCategoriesByApplicationId(input.ApplicationId);
-
-			//var deckCategoryDtos = deckCategories.ConvertAll(x => x.ToDeckCategoryDto());
+			var deckCategories = _gateway.ListDeckCategoriesByApplicationId(input.ApplicationId, input.IncludeDecks);
 
 			return new ListDeckCategoriesByApplicationOutput
 			{
