@@ -1,6 +1,7 @@
 using System.Reflection;
 using Funq;
 using ServiceStack;
+using ServiceStack.Api.Swagger;
 using ServiceStack.Text;
 
 namespace iayos.flashcardapi.Api.Infrastructure {
@@ -32,6 +33,8 @@ namespace iayos.flashcardapi.Api.Infrastructure {
 
 			// Set JSON web services to return idiomatic JSON camelCase properties   
 			JsConfig.EmitCamelCaseNames = true;
+
+			Plugins.Add(new SwaggerFeature());
 
 		}
 

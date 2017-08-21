@@ -1,4 +1,5 @@
 ﻿using System;
+using iayos.flashcardapi.Api.Endpoints.Application;
 using iayos.flashcardapi.Api.Infrastructure;
 
 namespace iayos.flashcardapi.Api
@@ -8,7 +9,7 @@ namespace iayos.flashcardapi.Api
 
 		protected void Application_Start(object sender, EventArgs e)
 		{
-			new FlashCardApiAppHostBase("FlashCardApi (TM) API, by Eladaus", typeof(FlashCardApiService).Assembly).Init();
+			new FlashCardApiAppHostBase("FlashCardApi (TM) API, by Eladaus", typeof(ApplicationService).Assembly).Init();
 		}
 
 		protected void Session_Start(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using Funq;
 using iayos.flashcardapi.Api.Endpoints.Application;
 using iayos.sequentialguid;
 using ServiceStack;
+using ServiceStack.Api.Swagger;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
 
