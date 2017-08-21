@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Funq;
 using iayos.flashcardapi.Api.Endpoints.Application;
+using iayos.flashcardapi.Api.Infrastructure;
 using iayos.sequentialguid;
 using ServiceStack;
 using ServiceStack.Api.Swagger;
@@ -38,7 +39,9 @@ namespace iayos.flashcardapi.Api.Test
 
 			Plugins.Add(new RegistrationFeature());
 
-			ContainerInitializer.InitializeOurContainerForGlory(container);
+
+			FlashcardApiFunqInitializer.InitializeOurContainerForGlory(container);
+			TestAppHostFunqContainerInitializer.InitializeOurContainerForGlory(container);
 
 			container.Register(new MemoryCacheClient());
 			_userRep = new InMemoryAuthRepository();

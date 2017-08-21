@@ -98,7 +98,7 @@
   <ItemGroup>
     <Compile Include="SimpleSuomiDataInjector.cs" />
     <Compile Include="TestingAppHost.cs" />
-    <Compile Include="ContainerInitializer.cs" />
+    <Compile Include="TestAppHostFunqContainerInitializer.cs" />
     <Compile Include="CustomAuthProvider.cs" />
     <Compile Include="CustomUserSession.cs" />
     <Compile Include="DomainTester.cs" />

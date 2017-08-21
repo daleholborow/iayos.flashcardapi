@@ -1,6 +1,7 @@
 ﻿using System;
 using iayos.flashcardapi.Domain.Infrastructure;
 using iayos.flashcardapi.DomainModel.Models;
+using ServiceStack;
 
 namespace iayos.flashcardapi.Domain.Interactor.Application
 {
@@ -48,8 +49,8 @@ namespace iayos.flashcardapi.Domain.Interactor.Application
 
 			// see if name is unique and throw if not
 			var applications = _gateway.ListApplicationsByName(applicationName);
-			if (applications != null) throw new Exception("Not allowed duplicate application names");
-			if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
+			if (applications.IsNullOrEmpty() == false) throw new Exception("Not allowed duplicate application names");
+			//if (applicationName.Contains("dale")) throw new Exception("Can't have your name in here while testing mate");
 		}
 	}
 }

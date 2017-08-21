@@ -13,7 +13,7 @@ namespace iayos.flashcardapi.Api.Test
 
 		public DomainTester()
 		{
-			ContainerInitializer.InitializeOurContainerForGlory(_container);
+			TestAppHostFunqContainerInitializer.InitializeOurContainerForGlory(_container);
 		}
 
 
