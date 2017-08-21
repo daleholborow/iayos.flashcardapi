@@ -9,7 +9,7 @@ namespace iayos.flashcardapi.Api
 
 		protected void Application_Start(object sender, EventArgs e)
 		{
-			new FlashCardApiAppHostBase("FlashCardApi (TM) API, by Eladaus", typeof(ApplicationService).Assembly).Init();
+			new FlashCardApiAppHostBase("FlashCardApi (TM) API, by eladaus", typeof(ApplicationService).Assembly).Init();
 		}
 
 		protected void Session_Start(object sender, EventArgs e)
