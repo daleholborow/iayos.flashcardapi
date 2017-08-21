@@ -3,7 +3,7 @@ using ServiceStack;
 
 namespace iayos.flashcardapi.ServiceModel.DeckCategory
 {
-	[Route("/application/{applicationId}/deckCategories", HttpMethods.Get)]
+	[Route("/applications/{applicationId}/deckCategories", HttpMethods.Get)]
 	public class ListDeckCategoriesByApplicationRequest : IReturn<ListDeckCategoriesByApplicationRequestResponse>
 	{
 

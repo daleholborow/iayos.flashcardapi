@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Funq;
-using iayos.flashcardapi.Api.Endpoints;
 using iayos.flashcardapi.Api.Endpoints.Application;
 using iayos.sequentialguid;
 using ServiceStack;
+using ServiceStack.Api.Swagger;
 using ServiceStack.Auth;
 using ServiceStack.Caching;
 

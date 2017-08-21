@@ -41,6 +41,7 @@ namespace iayos.flashcardapi.Api.Test
 			container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
 			container.Register<IDbConnection>(c => c.Resolve<IDbConnectionFactory>().Open());
 			container.Register<ISequentialGuidGenerator>(c => new MsSqlDbSequentialGuidGenerator());
+/*
 
 			using (var db = container.Resolve<IDbConnectionFactory>().Open())
 			{
@@ -50,6 +51,7 @@ namespace iayos.flashcardapi.Api.Test
 				db.CreateTableIfNotExists<CardTable>();
 				db.CreateTableIfNotExists<ScoreTable>();
 			}
+*/
 
 
 			
