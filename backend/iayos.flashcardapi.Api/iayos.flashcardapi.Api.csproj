@@ -15,7 +15,7 @@
     <RootNamespace>iayos.flashcardapi.Api</RootNamespace>
     <AssemblyName>iayos.flashcardapi.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -116,9 +116,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\FlashCardApiAppHostBase.cs" />
+    <Compile Include="Infrastructure\ConfigurableFlashcardApiAppHostExtensions.cs" />
+    <Compile Include="Infrastructure\FlashcardAspAppHost.cs" />
     <Compile Include="Infrastructure\FlashcardApiFunqInitializer.cs" />
     <Compile Include="Infrastructure\FlashCardApiSettings.cs" />
+    <Compile Include="Infrastructure\IConfigurableFlashcardApiAppHost.cs" />
     <Compile Include="Infrastructure\IFlashCardApiSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Endpoints\Application\ApplicationService.cs" />
