@@ -6,6 +6,6 @@ namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesBy
 {
 	public interface IListDeckCategoriesByApplicationGateway
 	{
-		List<DeckCategoryModel> ListDeckCategoriesByApplicationId(Guid applicationId);
+		List<DeckCategoryModel> ListDeckCategoriesByApplicationId(Guid applicationId, bool includeDecks);
 	}
 }

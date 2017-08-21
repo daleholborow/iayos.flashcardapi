@@ -24,7 +24,7 @@ namespace iayos.flashcardapi.Domain.Interactor.Deck.GetDeckById
 			// return the bare minimum of data!
 			var output = new GetDeckByIdOutput
 			{
-				Deck = model.ToDeckDto()
+				Deck = model
 			};
 			return output;
 		}

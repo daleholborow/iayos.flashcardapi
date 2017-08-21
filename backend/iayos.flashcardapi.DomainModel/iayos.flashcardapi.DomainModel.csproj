@@ -45,6 +45,7 @@
     <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\CardScoreModel.cs" />
+    <Compile Include="UtilityModels\ChildrenToKeyTransportModel.cs" />
     <Compile Include="Models\DeckCategoryModel.cs" />
     <Compile Include="Models\DeckModel.cs" />
     <Compile Include="Flags\LanguageFlag.cs" />

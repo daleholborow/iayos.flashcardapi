@@ -2,7 +2,7 @@
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Domain.Interactor.Deck
+namespace iayos.flashcardapi.Api.Endpoints.Deck
 {
 	public static class DeckMappings
 	{

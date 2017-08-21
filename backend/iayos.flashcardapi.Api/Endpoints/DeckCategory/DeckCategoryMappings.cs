@@ -1,10 +1,9 @@
-﻿using iayos.flashcardapi.Domain.Dto.Application;
-using iayos.flashcardapi.Domain.Interactor.Application;
-using iayos.flashcardapi.Domain.Interactor.Deck;
+﻿using iayos.flashcardapi.Api.Endpoints.Deck;
+using iayos.flashcardapi.Domain.Dto.Application;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Domain.Interactor.DeckCategory
+namespace iayos.flashcardapi.Api.Endpoints
 {
 	public static class DeckCategoryMappings
 	{
@@ -15,9 +14,4 @@ namespace iayos.flashcardapi.Domain.Interactor.DeckCategory
 			return dto;
 		}
 	}
-
-
-	
-
-	
 }

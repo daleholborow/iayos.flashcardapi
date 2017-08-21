@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using iayos.flashcardapi.Domain.Dto.Application;
+using iayos.flashcardapi.DomainModel.Models;
 
 namespace iayos.flashcardapi.Domain.Interactor.DeckCategory.ListDeckCategoriesByApplication
 {
 	public class ListDeckCategoriesByApplicationOutput
 	{
-		public List<DeckCategoryDto> DeckCategoryDtos { get; set; } = new List<DeckCategoryDto>();
+		public List<DeckCategoryModel> DeckCategories { get; set; } = new List<DeckCategoryModel>();
 	}
 }
