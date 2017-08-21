@@ -44,10 +44,17 @@ namespace iayos.flashcardapi.DomainModel.Models
 		//		public UserModel Author { get; set; }
 
 
-		public ICollection<CardModel> Cards { get; set; } = new List<CardModel>();
+		public List<CardModel> Cards { get; set; } = new List<CardModel>();
 
 
 		public DeckCategoryModel DeckCategory { get; set; }
+
+
+		public void AddCards(List<CardModel> cards)
+		{
+			Cards.AddRange(cards);
+			cards.ForEach(c => c.Deck = this);
+		}
 	}
 
 }

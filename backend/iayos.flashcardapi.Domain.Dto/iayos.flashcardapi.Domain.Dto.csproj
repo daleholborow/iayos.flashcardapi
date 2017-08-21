@@ -36,8 +36,15 @@
   <ItemGroup>
     <Compile Include="Application\ApplicationDto.cs" />
     <Compile Include="Application\DeckCategoryDto.cs" />
+    <Compile Include="Deck\CardDto.cs" />
     <Compile Include="Deck\DeckDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iayos.flashcardapi.DomainModel\iayos.flashcardapi.DomainModel.csproj">
+      <Project>{494A9C5A-10CF-4F6A-97BB-D3A4E9D5B49B}</Project>
+      <Name>iayos.flashcardapi.DomainModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

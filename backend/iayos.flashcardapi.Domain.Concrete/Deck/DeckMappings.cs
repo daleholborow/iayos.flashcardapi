@@ -1,4 +1,5 @@
 ﻿using System;
+using iayos.flashcardapi.Domain.Concrete.Card;
 using iayos.flashcardapi.Domain.Concrete.MsSql.Tables;
 using iayos.flashcardapi.DomainModel.Models;
 using ServiceStack;
@@ -11,6 +12,8 @@ namespace iayos.flashcardapi.Domain.Concrete.Deck
 		{
 			if (row == null) return null;
 			var model = row.ConvertTo<DeckModel>();
+			var cards = row.Cards.ConvertAll(x => x.ToCardModel());
+			model.AddCards(cards);
 			return model;
 		}
 
