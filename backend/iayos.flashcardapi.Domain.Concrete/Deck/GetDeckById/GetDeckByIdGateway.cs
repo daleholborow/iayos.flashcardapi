@@ -12,7 +12,7 @@ namespace iayos.flashcardapi.Domain.Concrete.Deck.GetDeckById
 		{
 		}
 
-		public DeckModel GetDeckModelById(Guid deckId)
+		public DeckModel GetDeckById(Guid deckId)
 		{
 			var deckModel = this.FindDeckById(deckId);
 			if (deckModel == null) throw new Exception("NotFound");
@@ -21,3 +21,4 @@ namespace iayos.flashcardapi.Domain.Concrete.Deck.GetDeckById
 
 	}
 }
+ 

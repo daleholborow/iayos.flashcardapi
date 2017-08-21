@@ -92,6 +92,7 @@
     <Compile Include="Endpoints\Application\ApplicationMappings.cs" />
     <Compile Include="Endpoints\DeckCategory\DeckCategoryMappings.cs" />
     <Compile Include="Endpoints\DeckCategory\DeckCategoryService.cs" />
+    <Compile Include="Endpoints\Card\CardMappings.cs" />
     <Compile Include="Endpoints\Deck\DeckMappings.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

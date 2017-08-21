@@ -12,14 +12,18 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		[PrimaryKey]
 		public Guid ApplicationId { get; set; }
 
+		[StringLength(0, 100)]
 		public string Name { get; set; }
 
+		[StringLength(0,4000)]
+		public string Description { get; set; }
+
 		[Reference]
-		public IList<DeckTable> Decks { get; set; } = new List<DeckTable>();
+		public List<DeckTable> Decks { get; set; } = new List<DeckTable>();
 
 
 	    [Reference]
-	    public IList<DeckCategoryTable> DeckCatgories { get; set; } = new List<DeckCategoryTable>();
+	    public List<DeckCategoryTable> DeckCategories { get; set; } = new List<DeckCategoryTable>();
 
 	}
 }

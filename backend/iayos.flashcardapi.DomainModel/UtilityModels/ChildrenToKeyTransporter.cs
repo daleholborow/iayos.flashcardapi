@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace iayos.flashcardapi.DomainModel.UtilityModels
 {
 
-	public class ChildrenToKeyTransportModel<TParentKey, TChild> where TParentKey : struct
+	public class ChildrenToKeyTransporter<TParentKey, TChild> where TParentKey : struct
 	{
 		private IDictionary<TParentKey, List<TChild>> Records { get; } = new Dictionary<TParentKey, List<TChild>>();
 
@@ -27,7 +27,7 @@ namespace iayos.flashcardapi.DomainModel.UtilityModels
 	}
 
 
-	public class ChildrenToKeyTransportModel<TChild> : ChildrenToKeyTransportModel<Guid, TChild>
+	public class ChildrenToKeyTransporter<TChild> : ChildrenToKeyTransporter<Guid, TChild>
 	{
 	}
 }

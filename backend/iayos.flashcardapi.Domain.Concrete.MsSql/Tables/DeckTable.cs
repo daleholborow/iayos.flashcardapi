@@ -38,7 +38,8 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 
 
 		[Reference]
-		public ICollection<CardTable> Cards { get; set; } = new List<CardTable>();
+		public List<CardTable> Cards { get; set; } = new List<CardTable>();
+
 
 		[References(typeof(DeckCategoryTable))]
 		[Required]
