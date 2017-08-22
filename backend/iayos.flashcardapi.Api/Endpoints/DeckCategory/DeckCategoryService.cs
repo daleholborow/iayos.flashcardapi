@@ -18,12 +18,14 @@ namespace iayos.flashcardapi.Api.Endpoints.DeckCategory
 			var deckCategoriesByApplicationOutput =
 				deckCategoriesByApplicationInteractor.Handle(agent, deckCategoriesByApplicationInput);
 
+			var deckCategories = deckCategoriesByApplicationOutput.DeckCategories.OrderBy(dc => dc.Name).ToList();
+			deckCategories.ForEach(dc => dc.Decks = dc.Decks.OrderBy(d => d.Name).ToList());
+
 			var response =
 				new ListDeckCategoriesByApplicationRequestResponse
 				{
-					Results = deckCategoriesByApplicationOutput
-					.DeckCategories.ConvertAll(x => x.ToDeckCategoryDto())
-					.OrderBy(dc => dc.Name)
+					Results = deckCategories
+					.ConvertAll(x => x.ToDeckCategoryDto())
 					.ToList()
 				};
 			return response;

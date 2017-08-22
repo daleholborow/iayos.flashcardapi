@@ -19,7 +19,8 @@ namespace iayos.flashcardapi.ServiceModel.Infrastructure.Message
 	public abstract class Response<TPayloadDto> : IHasResponseStatus, IReturn<TPayloadDto>
 	{
 		/// <summary>
-		/// The ServiceStack-populated outcome of the operation
+		/// The ServiceStack-populated outcome of the operation. 
+		/// ServiceStack only injects exceptions to ResponseStatus. ResponseStatus not set on successful requests (remains empty).
 		/// </summary>
 		[DataMember(Order = 1)]
 		public ResponseStatus ResponseStatus { get; set; }

@@ -12,7 +12,7 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Deploy.Infrastructure
 	public class DbDeploymentAppHostSettings : IDbDeploymentAppHostSettings
 	{
 
-		public string TargetDbConnectionStringKey => ConfigurationManager.ConnectionStrings["flashcardapi.ConnString"].ConnectionString;
+		public string TargetDbConnectionString => ConfigurationManager.ConnectionStrings["flashcardapi.ConnString"].ConnectionString;
 
 
 		public string ScriptSourceFolderPath => Get<string>("flashcardapi:ScriptSourceFolderPath", null);

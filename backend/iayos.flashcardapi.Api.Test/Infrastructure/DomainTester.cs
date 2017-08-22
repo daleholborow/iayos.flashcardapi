@@ -5,7 +5,7 @@ using iayos.flashcardapi.Domain.Interactor.Application.GetApplication;
 using iayos.flashcardapi.DomainModel.Models;
 using Xunit;
 
-namespace iayos.flashcardapi.Api.Test
+namespace iayos.flashcardapi.Api.Test.Infrastructure
 {
 	public class DomainTester
 	{
@@ -13,7 +13,7 @@ namespace iayos.flashcardapi.Api.Test
 
 		public DomainTester()
 		{
-			TestAppHostFunqContainerInitializer.InitializeOurContainerForGlory(_container);
+			//TestAppHostFunqContainerInitializer.InitializeOurContainerForGlory(_container);
 		}
 
 

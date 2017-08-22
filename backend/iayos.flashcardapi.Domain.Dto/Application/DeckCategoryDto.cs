@@ -6,7 +6,7 @@ namespace iayos.flashcardapi.Domain.Dto.Application
 {
 	public class DeckCategoryDto
 	{
-		public Guid Id { get; set; }
+		public Guid DeckCategoryId { get; set; }
 
 		public string Name { get; set; }
 

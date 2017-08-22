@@ -1,11 +1,11 @@
 using iayos.flashcardapi.Api.Infrastructure;
 using ServiceStack.Configuration;
 
-namespace iayos.flashcardapi.Api.Test
+namespace iayos.flashcardapi.Api.Test.Infrastructure
 {
 	public class UnitTestApiSettings : IFlashCardApiSettings
 	{
-		public bool ServiceStackDebugMode => false;
+		public bool ServiceStackDebugMode => true;
 
 		public bool ServiceStackWriteErrorsToResponse => false;
 

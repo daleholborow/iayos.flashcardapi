@@ -8,7 +8,6 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 	[Alias("Deck")]
 	public class DeckTable : AuditableTable
 	{
-
 		[PrimaryKey]
 		public Guid DeckId { get; set; }
 
@@ -26,13 +25,13 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		public string Name { get; set; }
 
 		/// <summary>
-		/// What language are the faces of the cards recorded in?
+		///     What language are the faces of the cards recorded in?
 		/// </summary>
 		public LanguageFlag FrontLanguage { get; set; } = LanguageFlag.ENGLISH;
 
 
 		/// <summary>
-		/// What language are the backs of the cards recorded in?
+		///     What language are the backs of the cards recorded in?
 		/// </summary>
 		public LanguageFlag BackLanguage { get; set; } = LanguageFlag.ENGLISH;
 
@@ -44,5 +43,8 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		[References(typeof(DeckCategoryTable))]
 		[Required]
 		public Guid DeckCategoryId { get; set; }
+
+		[Reference]
+		public DeckCategoryTable DeckCategory { get; set; }
 	}
 }

@@ -24,7 +24,7 @@ namespace iayos.flashcardapi.Domain.Concrete.MsSql.Tables
 		public string Name { get; set; }
 
 		[Reference]
-		public List<DeckTable> Decks { get; set; }
+		public List<DeckTable> Decks { get; set; } = new List<DeckTable>();
 
 	}
 }

@@ -46,7 +46,7 @@ namespace iayos.flashcardapi.Api.Infrastructure
 
 		public static void ConfigureDependencyInjection(this IConfigurableFlashcardApiAppHost host, Container container)
 		{
-			container.Register<ISequentialGuidGenerator>(c => new MySqlDbSequentialGuidGenerator());
+			container.Register<ISequentialGuidGenerator>(c => new MsSqlDbSequentialGuidGenerator());
 
 			container.RegisterAutoWired<GetApplicationByIdInteractor>();
 			container.RegisterAutoWiredAs<GetApplicationByIdGateway, IGetApplicationByIdGateway>();

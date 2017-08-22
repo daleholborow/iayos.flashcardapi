@@ -1,32 +1,38 @@
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using iayos.sequentialguid;
 using ServiceStack;
 
-namespace iayos.flashcardapi.Api.Test
+namespace iayos.flashcardapi.Api.Test.Infrastructure
 {
-	public class ApiUnitTester : IDisposable
+	public class FlashcardApiUnitTester : IDisposable
 	{
-		private readonly UnitTestSelfHost _apiAppHost;
+		private readonly FlashcardApiUnitTestSelfHost _apiAppHost;
+
+		private readonly int _port;
 
 		private bool _disposed;
 
 		private JsonServiceClient _jsonServiceClient;
 
-		private readonly int _port;
-
-
-		public ApiUnitTester()
+		public FlashcardApiUnitTester()
 		{
 			// create an apphost at the baseurl+port
 			_port = GetRandomUnusedPort();
 
-			_apiAppHost = new UnitTestSelfHost();
+			_apiAppHost = new FlashcardApiUnitTestSelfHost();
 			_apiAppHost
 				.Init()
 				.Start(BaseUrl);
 		}
+
+
+		public IDbConnection Db => _apiAppHost.GetDbConnection();
+
+		public ISequentialGuidGenerator DbGuidGenerator => _apiAppHost.GetDbSequentialGuidGenerator();
 
 		public JsonServiceClient JsonServiceClient => _jsonServiceClient ?? (_jsonServiceClient =
 			                                              new JsonServiceClient(BaseUrl + _apiAppHost._settings
