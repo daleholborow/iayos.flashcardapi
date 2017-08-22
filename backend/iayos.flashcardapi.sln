@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.ServiceModel", "iayos.flashcardapi.ServiceModel\iayos.flashcardapi.ServiceModel.csproj", "{24821241-2CF6-4D45-B0D2-8CBC367196E8}"
 EndProject
@@ -20,6 +20,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Domain.Dto", "iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj", "{6AF7F357-5A1C-49A7-A060-1B5E1544AE9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iayos.flashcardapi.Api", "iayos.flashcardapi.Api\iayos.flashcardapi.Api.csproj", "{90E0CF20-F9CF-41C5-9E03-4431C471C4CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildAndDeploy", "BuildAndDeploy", "{F0D6001B-9F42-40C3-A75E-3FAE41F60304}"
+	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

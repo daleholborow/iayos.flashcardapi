@@ -1,0 +1,114 @@
+-
+  branches:
+    only:
+      - /feature.*/						# deploy all from feature branches using Regex
+      - develop
+      - release
+      
+  os: Visual Studio 2017
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '$(GitVersion_AssemblySemVer)'
+    assembly_file_version: '$(GitVersion_AssemblySemVer)'
+    assembly_informational_version: '$(GitVersion_NuGetVersion)'
+    
+  install:
+    # GitVersion doesn't support SSH, so change the origin remote to an HTTPS URL (if using a private server: 
+    # http://help.appveyor.com/discussions/kb/17-getting-gitversion-to-work-with-private-bitbucketgithub-repositories
+    # Ensure the GITVERSION_REMOTE_USERNAME and GITVERSION_REMOTE_PASSWORD env variables are set in either this file or the project configuration.  
+    - git remote set-url origin https://github.com/daleholborow/iayos.flashcardapi.git
+    - GitVersion -output buildserver    
+    
+  before_build:
+   - nuget restore backend\iayos.flashcardapi.sln
+   - echo %GitVersion_NuGetVersion%
+   - cd backend\iayos.flashcardapi.Api
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > AppSettings.Private.config
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > ConnectionStrings.Private.config
+   - cd ..
+   - cd ..
+   - cd backend\iayos.flashcardapi.Api.Test
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > AppSettings.Private.config
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > ConnectionStrings.Private.config
+   - cd ..
+   - cd ..
+   - cd backend\iayos.flashcardapi.Domain.Concrete.MsSql.Deploy
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > AppSettings.Private.config
+   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > ConnectionStrings.Private.config
+   - cd ..
+   - cd ..
+     
+  build:
+    publish_nuget: true  
+    verbosity: minimal  
+    
+  test: off
+
+  configuration:
+   - Debug
+   
+  cache:
+   - backend\packages
+
+  artifacts:
+    - path: backend\iayos.flashcardapi.Api\
+      name: flashcardapi
+
+  deploy:
+    -
+      provider: Environment
+      name: iayos.flashcardapi
+
+-
+  branches:
+    only:
+      - /feature.*/						# deploy all from feature branches using Regex
+      - develop
+      - release
+      - master
+      
+  os: Visual Studio 2017
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '$(GitVersion_AssemblySemVer)'
+    assembly_file_version: '$(GitVersion_AssemblySemVer)'
+    assembly_informational_version: '$(GitVersion_NuGetVersion)'
+   
+  install:
+    # GitVersion doesn't support SSH, so change the origin remote to an HTTPS URL (if using a private server: 
+    # http://help.appveyor.com/discussions/kb/17-getting-gitversion-to-work-with-private-bitbucketgithub-repositories
+    # Ensure the GITVERSION_REMOTE_USERNAME and GITVERSION_REMOTE_PASSWORD env variables are set in either this file or the project configuration.  
+    - git remote set-url origin https://github.com/daleholborow/iayos.flashcardapi.git
+    - GitVersion -output buildserver    
+    
+  before_build:
+    - nuget restore backend\iayos.flashcardapi.sln
+    - echo %GitVersion_NuGetVersion%
+    - cd backend\iayos.flashcardapi.Test
+    - echo hack to manually create a private settings file so that Test project can copy it during the build and bundle > AppSettings.Private.config
+    - echo hack to manually create a private settings file so that Test project can copy it during the build and bundle > ConnectionStrings.Private.config
+    - cd ..
+    - cd ..
+
+#  build:
+#    publish_nuget: true  
+#    verbosity: minimal  
+    
+#  test: off
+
+  configuration:
+    - Release
+   
+  cache:
+    - backend\packages
+ 
+  artifacts:
+    - path: backend\iayos.flashcardapi.Api\
+      name: flashcardapi
+
+  deploy:
+    -
+      provider: Environment
+      name: iayos.flashcardapi
