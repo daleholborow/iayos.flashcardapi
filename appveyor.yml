@@ -24,7 +24,7 @@
    - nuget restore backend\iayos.flashcardapi.sln
    - echo %GitVersion_NuGetVersion%
    - cd backend\iayos.flashcardapi.Api
-   - echo hack to manually create a private settings file so that project can copy it during the build and bundle > AppSettings.Private.config
+   - echo /<appSettings ///> > AppSettings.Private.config
    - echo hack to manually create a private settings file so that project can copy it during the build and bundle > ConnectionStrings.Private.config
    - cd ..
    - cd ..
