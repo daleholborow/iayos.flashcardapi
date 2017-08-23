@@ -30,17 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.Common, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Common.4.5.8\lib\net45\ServiceStack.Common.dll</HintPath>
+    <Reference Include="iayos.sequentialguid, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iayos.sequentialguid.0.1.0\lib\net461\iayos.sequentialguid.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.5.12\lib\net45\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.5.8\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.12\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.OrmLite, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.OrmLite.4.5.8\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+    <Reference Include="ServiceStack.OrmLite, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.4.5.12\lib\net45\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Text.4.5.8\lib\net45\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,12 +55,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\ApplicationConcreteMappings.cs" />
-    <Compile Include="Application\CreateApplicationGateway.cs" />
-    <Compile Include="Application\CreateApplicationValidator.cs" />
-    <Compile Include="Application\FindApplicationGateway.cs" />
-    <Compile Include="Application\IHasDbConnection.cs" />
-    <Compile Include="Application\ApplicationConcreteMixinMethods.cs" />
+    <Compile Include="Application\ApplicationMappings.cs" />
+    <Compile Include="Application\CreateApplication\CreateApplicationGateway.cs" />
+    <Compile Include="Application\CreateApplication\CreateApplicationValidator.cs" />
+    <Compile Include="Application\FindApplication\FindApplicationGateway.cs" />
+    <Compile Include="Application\IGetApplicationByIdFromMsSqlDb.cs" />
+    <Compile Include="Card\CreateCard\CreateCardGateway.cs" />
+    <Compile Include="Card\CardMappings.cs" />
+    <Compile Include="Card\CardMixins.cs" />
+    <Compile Include="Card\GetCardById\GetCardByIdGateway.cs" />
+    <Compile Include="Card\IFindCardByIdFromMsSqlDb.cs" />
+    <Compile Include="DeckCategory\ListDeckCategoriesByApplicationGateway.cs" />
+    <Compile Include="DeckCategory\DeckCategoryMappings.cs" />
+    <Compile Include="Deck\DeckMixins.cs" />
+    <Compile Include="Deck\DeckMappings.cs" />
+    <Compile Include="Deck\CreateDeck\CreateDeckGateway.cs" />
+    <Compile Include="Deck\CreateDeck\CreateDeckValidator.cs" />
+    <Compile Include="Deck\GetDeckById\GetDeckByIdGateway.cs" />
+    <Compile Include="Deck\IFindDeckByIdFromMsSqlDb.cs" />
+    <Compile Include="Deck\IFindDeckByNameFromMsSqlDb.cs" />
+    <Compile Include="FlashCardGateway.cs" />
+    <Compile Include="Application\GetApplication\GetApplicationByIdGateway.cs" />
+    <Compile Include="Application\GetApplication\GetApplicationValidator.cs" />
+    <Compile Include="Application\IFindApplicationByIdFromMsSqlDb.cs" />
+    <Compile Include="Application\IFindApplicationByNameFromMsSqlDb.cs" />
+    <Compile Include="IHasDbConnection.cs" />
+    <Compile Include="Application\ApplicationMixins.cs" />
+    <Compile Include="FlashCardValidator.cs" />
+    <Compile Include="IHasSequentialGuidGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

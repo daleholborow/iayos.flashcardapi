@@ -41,36 +41,45 @@
   <ItemGroup>
     <Compile Include="Infrastructure\IInteractor.cs" />
     <Compile Include="Infrastructure\ITransactionalGateway.cs" />
-    <Compile Include="Interactor\Application\Create\CreateApplicationMappings.cs" />
-    <Compile Include="Interactor\Application\Create\CreateApplicationInput.cs" />
-    <Compile Include="Interactor\Application\Create\CreateApplicationInteractor.cs" />
-    <Compile Include="Interactor\Application\Create\CreateApplicationOutput.cs" />
-    <Compile Include="Interactor\Application\Create\ICreateApplicationGateway.cs" />
-    <Compile Include="Interactor\Application\Create\ICreateApplicationValidator.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationByName.cs" />
-    <Compile Include="Interactor\Application\Find\FindApplicationInteractor.cs" />
-    <Compile Include="Interactor\Application\Find\FindApplicationInput.cs" />
-    <Compile Include="Interactor\Application\Find\FindApplicationOutput.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationByGlobalId.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationGateway.cs" />
-    <Compile Include="Interactor\Application\Find\IFindApplicationValidator.cs" />
-    <Compile Include="Interactor\Application\Get\GetApplicationInput.cs" />
-    <Compile Include="Interactor\Application\Get\GetApplicationInteractor.cs" />
-    <Compile Include="Interactor\Application\Get\GetApplicationMappings.cs" />
-    <Compile Include="Interactor\Application\Get\GetApplicationOutput.cs" />
-    <Compile Include="Interactor\Application\Get\IGetApplicationGateway.cs" />
-    <Compile Include="Interactor\Application\Get\IGetApplicationValidator.cs" />
-    <Compile Include="Interactor\Deck\Create\CreateDeckInput.cs" />
-    <Compile Include="Interactor\Deck\Create\CreateDeckInteractor.cs" />
-    <Compile Include="Interactor\Deck\Create\CreateDeckOutput.cs" />
-    <Compile Include="Interactor\Deck\Create\ICreateDeckGateway.cs" />
-    <Compile Include="Interactor\Deck\Create\ICreateDeckValidator.cs" />
+    <Compile Include="Interactor\Application\ApplicationMappings.cs" />
+    <Compile Include="Interactor\Application\CreateApplication\CreateApplicationInput.cs" />
+    <Compile Include="Interactor\Application\CreateApplication\CreateApplicationInteractor.cs" />
+    <Compile Include="Interactor\Application\CreateApplication\CreateApplicationOutput.cs" />
+    <Compile Include="Interactor\Application\CreateApplication\ICreateApplicationGateway.cs" />
+    <Compile Include="Interactor\Application\CreateApplication\ICreateApplicationValidator.cs" />
+    <Compile Include="Interactor\Application\FindApplication\FindApplicationInteractor.cs" />
+    <Compile Include="Interactor\Application\FindApplication\FindApplicationInput.cs" />
+    <Compile Include="Interactor\Application\FindApplication\FindApplicationOutput.cs" />
+    <Compile Include="Interactor\Application\FindApplication\IFindApplicationGateway.cs" />
+    <Compile Include="Interactor\Application\FindApplication\IFindApplicationValidator.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdInput.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdInteractor.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationMappings.cs" />
+    <Compile Include="Interactor\Application\GetApplication\GetApplicationByIdOutput.cs" />
+    <Compile Include="Interactor\Application\GetApplication\IGetApplicationByIdGateway.cs" />
+    <Compile Include="Interactor\Application\GetApplication\IGetApplicationValidator.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardInput.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardInteractor.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardMappings.cs" />
+    <Compile Include="Interactor\Card\CreateCard\CreateCardOutput.cs" />
+    <Compile Include="Interactor\Card\CreateCard\ICreateCardGateway.cs" />
+    <Compile Include="Interactor\Card\CreateCard\ICreateCardValidator.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\IListDeckCategoriesByApplicationGateway.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationInput.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationInteractor.cs" />
+    <Compile Include="Interactor\DeckCategory\ListDeckCategoriesByApplication\ListDeckCategoriesByApplicationOutput.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\CreateDeckMappings.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\CreateDeckInput.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\CreateDeckInteractor.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\CreateDeckOutput.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\ICreateDeckGateway.cs" />
+    <Compile Include="Interactor\Deck\CreateDeck\ICreateDeckValidator.cs" />
+    <Compile Include="Interactor\Deck\GetDeckById\GetDeckByIdInput.cs" />
+    <Compile Include="Interactor\Deck\GetDeckById\GetDeckByIdInteractor.cs" />
+    <Compile Include="Interactor\Deck\GetDeckById\GetDeckByIdOutput.cs" />
+    <Compile Include="Interactor\Deck\GetDeckById\IGetDeckByIdGateway.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\iayos.flashcardapi.Domain.Dto\iayos.flashcardapi.Domain.Dto.csproj">
-      <Project>{6AF7F357-5A1C-49A7-A060-1B5E1544AE9D}</Project>
-      <Name>iayos.flashcardapi.Domain.Dto</Name>
-    </ProjectReference>
     <ProjectReference Include="..\iayos.flashcardapi.DomainModel\iayos.flashcardapi.DomainModel.csproj">
       <Project>{494A9C5A-10CF-4F6A-97BB-D3A4E9D5B49B}</Project>
       <Name>iayos.flashcardapi.DomainModel</Name>
@@ -80,12 +89,11 @@
     <Reference Include="iayos.extensions, Version=0.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\iayos.extensions.0.3.3\lib\net461\iayos.extensions.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text, Version=4.5.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Text.4.5.8\lib\net45\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interactor\Card\" />
     <Folder Include="Interactor\User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

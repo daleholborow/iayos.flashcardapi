@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using iayos.flashcardapi.DomainModel.Flags;
 
 namespace iayos.flashcardapi.DomainModel.Models
 {
 	public class DeckModel : Infrastructure.DomainModel
 	{
+
+		public Guid DeckId { get; set; }
 
 		public string Name { get; set; }
 
@@ -41,7 +44,17 @@ namespace iayos.flashcardapi.DomainModel.Models
 		//		public UserModel Author { get; set; }
 
 
-		public ICollection<CardModel> Cards { get; set; } = new List<CardModel>();
+		public List<CardModel> Cards { get; set; } = new List<CardModel>();
+
+
+		public DeckCategoryModel DeckCategory { get; set; }
+
+
+		public void AddCards(List<CardModel> cards)
+		{
+			Cards.AddRange(cards);
+			cards.ForEach(c => c.Deck = this);
+		}
 	}
 
 }
